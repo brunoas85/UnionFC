@@ -12,7 +12,6 @@ import {
   TEAM_LOGOS,
   OTHER_MATCHES,
   CLUB_INFO,
-  WHATSAPP_GROUP_LINK,
 } from './data';
 import { supabase } from './supabaseClient';
 
@@ -229,13 +228,13 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
           borderBottom: `2px solid ${C.dark}`, cursor: 'pointer',
         }}
       >
-        <span style={{ fontWeight: 800, fontSize: 9, letterSpacing: '.16em', flexShrink: 0 }}>
+        <span style={{ fontWeight: 800, fontSize: 9, letterSpacing: '.16em', flexShrink: 0, whiteSpace: 'nowrap' }}>
           {NEXT_MATCH.round}
         </span>
-        <span style={{ fontWeight: 800, fontSize: 15 }}>
+        <span style={{ fontWeight: 800, fontSize: 15, flex: 1, minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {NEXT_MATCH.opponent.toUpperCase()} · {NEXT_MATCH.date.split(' ')[0].toUpperCase()} {NEXT_MATCH.time}
         </span>
-        <span style={{ marginLeft: 'auto', fontWeight: 700, fontSize: 14 }}>→</span>
+        <span style={{ marginLeft: 'auto', fontWeight: 700, fontSize: 14, flexShrink: 0 }}>→</span>
       </div>
 
       {/* Numbered index rows */}
@@ -287,23 +286,10 @@ function MatchScreen() {
           <span style={{ fontWeight: 700, fontSize: 14 }}>{NEXT_MATCH.date.toUpperCase()} · {NEXT_MATCH.time}</span>
           <span style={{ fontWeight: 400, fontSize: 12, opacity: .85 }}>{NEXT_MATCH.stadium} · San Martín de los Andes</span>
         </div>
-        <a
-          href={WHATSAPP_GROUP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            appearance: 'none', border: 'none', background: '#fff', color: C.darkRed,
-            padding: '13px 16px', fontWeight: 800, fontSize: 12, letterSpacing: '.1em',
-            textAlign: 'center', textDecoration: 'none', textTransform: 'uppercase',
-            fontFamily: FONT,
-          }}
-        >
-          Confirmar asistencia
-        </a>
       </div>
 
       <div style={{ padding: '16px 16px', fontWeight: 400, fontSize: 12, lineHeight: 1.6, color: C.mid }}>
-        2do encuentro de Unión en el Clausura 2026.
+        3er encuentro de Unión en el Clausura 2026.
       </div>
 
       {/* Noticias */}
@@ -482,24 +468,67 @@ function FixtureScreen({ fixture, loading, otherMatches }: { fixture: any[]; loa
 // ── Galería ────────────────────────────────────────────────────
 function GaleriaScreen() {
   const [selected, setSelected] = useState<string | null>(null);
-  return (
-    <div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: 24 }}>
-        {[...MATCH_IMAGES].reverse().map((img, i) => (
-          <img
-            key={`img-${i}`}
-            src={img}
-            alt=""
-            onClick={() => setSelected(img)}
-            style={{ width: '100%', height: 230, objectFit: 'cover', display: 'block', filter: 'grayscale(1) contrast(1.08)', cursor: 'pointer' }}
-          />
-        ))}
-        {MATCH_VIDEOS.map((v, i) => (
-          <video key={`vid-${i}`} controls style={{ width: '100%', display: 'block' }}>
-            <source src={v} type="video/mp4" />
-          </video>
+  const [section, setSection] = useState<'videos' | 'fotos' | null>(null);
+
+  if (section === null) {
+    const options: { n: string; label: string; s: 'videos' | 'fotos' }[] = [
+      { n: '01', label: 'VIDEOS', s: 'videos' },
+      { n: '02', label: 'FOTOS', s: 'fotos' },
+    ];
+    return (
+      <div>
+        {options.map(o => (
+          <button
+            key={o.s}
+            onClick={() => setSection(o.s)}
+            style={{
+              appearance: 'none', border: 'none', borderBottom: `2px solid ${C.dark}`,
+              background: 'none', width: '100%', display: 'flex', alignItems: 'center',
+              gap: 14, padding: '20px 16px', textAlign: 'left', cursor: 'pointer',
+              fontFamily: FONT,
+            }}
+          >
+            <span style={{ fontWeight: 800, fontSize: 11, letterSpacing: '.06em', color: C.red, width: 22, flexShrink: 0 }}>{o.n}</span>
+            <span style={{ fontWeight: 800, fontSize: 19, lineHeight: 1, letterSpacing: '.01em', textTransform: 'uppercase', flex: 1, color: C.dark }}>{o.label}</span>
+            <span style={{ fontWeight: 700, fontSize: 15, color: C.light }}>→</span>
+          </button>
         ))}
       </div>
+    );
+  }
+
+  return (
+    <div>
+      <div
+        onClick={() => setSection(null)}
+        style={{ padding: '14px 16px', fontWeight: 800, fontSize: 11, letterSpacing: '.08em', color: C.dark, cursor: 'pointer', borderBottom: `2px solid ${C.dark}` }}
+      >
+        ← GALERÍA
+      </div>
+
+      {section === 'videos' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: 24 }}>
+          {[...MATCH_VIDEOS].reverse().map((v, i) => (
+            <video key={`vid-${i}`} controls style={{ width: '100%', display: 'block' }}>
+              <source src={v} type="video/mp4" />
+            </video>
+          ))}
+        </div>
+      )}
+
+      {section === 'fotos' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: 24 }}>
+          {[...MATCH_IMAGES].reverse().map((img, i) => (
+            <img
+              key={`img-${i}`}
+              src={img}
+              alt=""
+              onClick={() => setSelected(img)}
+              style={{ width: '100%', height: 230, objectFit: 'cover', display: 'block', filter: 'grayscale(1) contrast(1.08)', cursor: 'pointer' }}
+            />
+          ))}
+        </div>
+      )}
 
       {selected && (
         <div

@@ -35,12 +35,12 @@ export const CLUB_INFO = {
 export const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/TU-CODIGO-DE-INVITACION";
 
 export const NEXT_MATCH = {
-  opponent: "Vélez",
-  opponentLogo: TEAM_LOGOS["Vélez"],
-  date: "Dom 13 de Septiembre",
-  time: "10:00 HS",
+  opponent: "Sarmiento",
+  opponentLogo: TEAM_LOGOS["Sarmiento"],
+  date: "Dom 20 de Septiembre",
+  time: "13:30 HS",
   stadium: "Albino Stadium",
-  round: "CLAUSURA 2026 · FECHA 2",
+  round: "CLAUSURA 2026 · FECHA 3",
   isLocal: true,
 };
 
@@ -373,7 +373,7 @@ export const FIXTURE = [
     date: "Dom 13 de Septiembre",
     time: "10:00",
     stadium: "Albino Stadium",
-    resultado: "",
+    resultado: "1 - 0",
     logo: TEAM_LOGOS["Vélez"],
     torneo: "Clausura 2026",
   },
@@ -403,11 +403,11 @@ export const OTHER_MATCHES = [
 
   { torneo: "Clausura 2026", fecha: 2, home: "Lácar", away: "El Barrio", date: "11/9/2026", time: "21:30", resultado: "" },
   { torneo: "Clausura 2026", fecha: 2, home: "Dinamo", away: "Comunicaciones", date: "12/9/2026", time: "19:00", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Patagonia", away: "Chapelco", date: "13/9/2026", time: "11:45", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Frontera", away: "Sarmiento", date: "13/9/2026", time: "13:30", resultado: "" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Patagonia", away: "Chapelco", date: "13/9/2026", time: "11:45", resultado: "0 - 1" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Frontera", away: "Sarmiento", date: "13/9/2026", time: "13:30", resultado: "3 - 0" },
   { torneo: "Clausura 2026", fecha: 2, home: "All Boys", away: "Dinosaurios", date: "13/9/2026", time: "15:15", resultado: "" },
   { torneo: "Clausura 2026", fecha: 2, home: "Arenal", away: "Belgrano", date: "13/9/2026", time: "17:00", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Las Rosas", away: "Embajadores", date: "13/9/2026", time: "18:45", resultado: "" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Las Rosas", away: "Embajadores", date: "13/9/2026", time: "18:45", resultado: "0 - 1" },
 
   { torneo: "Clausura 2026", fecha: 3, home: "Embajadores", away: "Comunicaciones", date: "18/9/2026", time: "21:30", resultado: "" },
   { torneo: "Clausura 2026", fecha: 3, home: "Las Rosas", away: "El Barrio", date: "19/9/2026", time: "19:00", resultado: "" },
@@ -421,8 +421,8 @@ export const OTHER_MATCHES = [
 export const NEWS = [
   {
     category: "Clausura 2026",
-    title: "Y arrancó el torneo... Y Unión metió sus primeros 3 puntos ¡Vamos Unión carajo!",
-    image: "/UnionPlantel-5.png"
+    title: "Con gol de Harry, nuestro goleador! Unión venció a Vélez por 1 a 0 y se mantiene en la punta del torneo.",
+    image: "/UnionPlantel-18.png"
   },
   {
     category: "Entrenamiento",
@@ -443,6 +443,16 @@ export const MATCH_VIDEOS = [
   "2.mp4",
   "3.mp4",
   "1º FECHA Clau26 (4).mp4",
+  "2º FECHA Clau26 (1).mp4",
+  "2º FECHA Clau26 (2).mp4",
+  "2º FECHA Clau26 (3).mp4",
+  "2º FECHA Clau26 (4).mp4",
+  "2º FECHA Clau26 (5).mp4",
+  "2º FECHA Clau26 (6).mp4",
+  "2º FECHA Clau26 (7).mp4",
+  "2º FECHA Clau26 (8).mp4",
+  "2º FECHA Clau26 (9).mp4",
+  "2º FECHA Clau26 (10).mp4",
 ];
 
 // Agregar fotos nuevas al final del array (la galería las muestra con las más recientes primero)
@@ -472,4 +482,14 @@ export const MATCH_IMAGES = [
   "1º FECHA CLAU26(8).jpeg",
   "1º FECHA CLAU26(9).jpeg",
   "Entrenamiento1.png",
+  "UnionPlantel-16.png",
+  "UnionPlantel-17.png",
+  "UnionPlantel-18.png",
+  "UnionPlantel-19.png",
+  "UnionPlantel-20.png",
+  "UnionPlantel-21.png",
+  "UnionPlantel-22.png",
+  "UnionPlantel-23.png",
+  "UnionPlantel-24.png",
+  "UnionPlantel-25.png",
 ];
