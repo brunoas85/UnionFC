@@ -393,20 +393,20 @@ export const FIXTURE = [
 // Se puede cargar el resultado ("goles local - goles visitante") a mano acá, o mejor
 // todavía, en la tabla "other_matches" de Supabase — ver computeStandings más abajo.
 export const OTHER_MATCHES = [
-  { torneo: "Clausura 2026", fecha: 1, home: "Las Rosas", away: "Lácar", date: "4/9/2026", time: "21:30", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "Dinamo", away: "Embajadores", date: "5/9/2026", time: "20:00", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "Patagonia", away: "Comunicaciones", date: "6/9/2026", time: "11:45", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "Frontera", away: "Vélez", date: "6/9/2026", time: "13:30", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "All Boys", away: "Chapelco", date: "6/9/2026", time: "15:15", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "Arenal", away: "Sarmiento", date: "6/9/2026", time: "17:00", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 1, home: "Belgrano", away: "Dinosaurios", date: "6/9/2026", time: "18:45", resultado: "" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Las Rosas", away: "Lácar", date: "4/9/2026", time: "21:30", resultado: "1 - 0" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Dinamo", away: "Embajadores", date: "5/9/2026", time: "20:00", resultado: "0 - 1" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Patagonia", away: "Comunicaciones", date: "6/9/2026", time: "11:45", resultado: "2 - 1" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Frontera", away: "Vélez", date: "6/9/2026", time: "13:30", resultado: "2 - 0" },
+  { torneo: "Clausura 2026", fecha: 1, home: "All Boys", away: "Chapelco", date: "6/9/2026", time: "15:15", resultado: "0 - 2" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Arenal", away: "Sarmiento", date: "6/9/2026", time: "17:00", resultado: "1 - 1" },
+  { torneo: "Clausura 2026", fecha: 1, home: "Belgrano", away: "Dinosaurios", date: "6/9/2026", time: "18:45", resultado: "0 - 2" },
 
-  { torneo: "Clausura 2026", fecha: 2, home: "Lácar", away: "El Barrio", date: "11/9/2026", time: "21:30", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Dinamo", away: "Comunicaciones", date: "12/9/2026", time: "19:00", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Patagonia", away: "Chapelco", date: "13/9/2026", time: "11:45", resultado: "0 - 1" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Lácar", away: "El Barrio", date: "11/9/2026", time: "21:30", resultado: "1 - 0" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Dinamo", away: "Comunicaciones", date: "12/9/2026", time: "19:00", resultado: "0 - 3" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Patagonia", away: "Chapelco", date: "13/9/2026", time: "11:45", resultado: "0 - 3" },
   { torneo: "Clausura 2026", fecha: 2, home: "Frontera", away: "Sarmiento", date: "13/9/2026", time: "13:30", resultado: "3 - 0" },
-  { torneo: "Clausura 2026", fecha: 2, home: "All Boys", away: "Dinosaurios", date: "13/9/2026", time: "15:15", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 2, home: "Arenal", away: "Belgrano", date: "13/9/2026", time: "17:00", resultado: "" },
+  { torneo: "Clausura 2026", fecha: 2, home: "All Boys", away: "Dinosaurios", date: "13/9/2026", time: "15:15", resultado: "2 - 2" },
+  { torneo: "Clausura 2026", fecha: 2, home: "Arenal", away: "Belgrano", date: "13/9/2026", time: "17:00", resultado: "2 - 0" },
   { torneo: "Clausura 2026", fecha: 2, home: "Las Rosas", away: "Embajadores", date: "13/9/2026", time: "18:45", resultado: "0 - 1" },
 
   { torneo: "Clausura 2026", fecha: 3, home: "Embajadores", away: "Comunicaciones", date: "18/9/2026", time: "21:30", resultado: "" },

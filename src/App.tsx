@@ -322,24 +322,36 @@ function TablaScreen({ fixture, otherMatches }: { fixture: any[]; otherMatches: 
         <div style={{ padding: '16px 16px 10px' }}>
           <span style={{ fontWeight: 400, fontSize: 10, color: C.light }}>Clausura 2026 · Senior</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '30px 1fr 40px 40px', padding: '8px 16px', borderTop: `2px solid ${C.dark}`, borderBottom: `2px solid ${C.dark}`, fontWeight: 800, fontSize: 8, letterSpacing: '.12em', color: C.mid }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '22px 1fr 26px 20px 20px 20px 20px 24px 24px 28px', padding: '8px 10px', borderTop: `2px solid ${C.dark}`, borderBottom: `2px solid ${C.dark}`, fontWeight: 800, fontSize: 7, letterSpacing: '.06em', color: C.mid }}>
           <span>POS</span><span>EQUIPO</span>
-          <span style={{ textAlign: 'center' }}>DIF</span>
           <span style={{ textAlign: 'right' }}>PTS</span>
+          <span style={{ textAlign: 'center' }}>J</span>
+          <span style={{ textAlign: 'center' }}>G</span>
+          <span style={{ textAlign: 'center' }}>E</span>
+          <span style={{ textAlign: 'center' }}>P</span>
+          <span style={{ textAlign: 'center' }}>GF</span>
+          <span style={{ textAlign: 'center' }}>GC</span>
+          <span style={{ textAlign: 'right' }}>DIF</span>
         </div>
         {standings.map((row, i) => (
           <div key={i} style={{
-            display: 'grid', gridTemplateColumns: '30px 1fr 40px 40px', alignItems: 'center',
-            padding: '12px 16px', borderBottom: `1px solid ${C.border}`,
+            display: 'grid', gridTemplateColumns: '22px 1fr 26px 20px 20px 20px 20px 24px 24px 28px', alignItems: 'center',
+            padding: '10px 10px', borderBottom: `1px solid ${C.border}`,
             background: (row as any).isUserTeam ? '#ffe0d9' : 'transparent',
           }}>
-            <span style={{ fontWeight: 800, fontSize: 12, color: C.light }}>{row.pos}</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
-              <img src={(row as any).logo} alt="" style={{ width: 20, height: 20, objectFit: 'contain', flexShrink: 0 }} />
-              <span style={{ fontWeight: 700, fontSize: 13, lineHeight: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{row.name}</span>
+            <span style={{ fontWeight: 800, fontSize: 11, color: C.light }}>{row.pos}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0 }}>
+              <img src={(row as any).logo} alt="" style={{ width: 18, height: 18, objectFit: 'contain', flexShrink: 0 }} />
+              <span style={{ fontWeight: 700, fontSize: 11, lineHeight: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{row.name}</span>
             </div>
-            <span style={{ fontWeight: 400, fontSize: 12, textAlign: 'center', color: C.mid }}>{row.dif > 0 ? `+${row.dif}` : row.dif}</span>
-            <span style={{ fontWeight: 800, fontSize: 14, textAlign: 'right' }}>{row.pts}</span>
+            <span style={{ fontWeight: 800, fontSize: 12, textAlign: 'right' }}>{row.pts}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.pj}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.g}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.e}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.p}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.gf}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.gc}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'right', color: C.mid }}>{row.dif > 0 ? `+${row.dif}` : row.dif}</span>
           </div>
         ))}
       </div>
