@@ -90,19 +90,10 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    async function fetchFixture() {
-      try {
-        const { data, error } = await supabase
-          .from('fixture').select('*').order('match_number', { ascending: true });
-        if (error) throw error;
-        if (data) setFixtureList(data);
-      } catch {
-        setFixtureList(FIXTURE);
-      } finally {
-        setLoadingFixture(false);
-      }
-    }
-    fetchFixture();
+    // El fixture del club se mantiene en el archivo local para no quedar desactualizado
+    // cuando la base remota tenga información vieja o no sincronizada.
+    setFixtureList(FIXTURE);
+    setLoadingFixture(false);
   }, []);
 
   useEffect(() => {

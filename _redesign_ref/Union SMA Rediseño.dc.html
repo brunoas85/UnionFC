@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap">
+<style>
+body{margin:0;background:#f3f2f2;font-family:Archivo,system-ui,sans-serif;color:#201e1d}
+a{color:#ae1800;text-decoration:none}
+a:hover{color:#ec3013}
+button:focus-visible{outline:2px solid #ec3013;outline-offset:2px}
+@keyframes u-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes u-in{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes u-sheet{from{transform:translateY(101%)}to{transform:none}}
+@keyframes u-fade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<section id="t1" style="padding:44px 48px 40px">
+<div style="display:flex;align-items:baseline;gap:10px;margin:0 0 8px">
+<a href="#t1" style="font:800 10px/1 Archivo;letter-spacing:.12em;padding:5px 8px;background:#201e1d;color:#f3f2f2">1</a>
+<span style="font:800 14px/1 Archivo;letter-spacing:.02em;text-transform:uppercase">Unión SMA — tres direcciones</span>
+</div>
+<p style="max-width:760px;margin:0 0 30px;font:400 13px/1.6 Archivo;color:#605d5d;text-wrap:pretty">Sistema visual: rojo casi mono sobre gris claro, Archivo en todo, cero radios, reglas de 2px como estructura, fotos en blanco y negro. El escudo se mantiene tal cual. Las tres opciones parten del mismo contenido real (Apertura 2026, categoría Senior) y cambian la navegación, el orden de la información y el movimiento.</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+
+<div id="1a" style="display:flex;flex-direction:column;gap:10px;flex:none;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Archivo;color:#605d5d">
+<a href="#1a" style="font:800 10px/1 Archivo;letter-spacing:.1em;padding:4px 7px;background:#d7d3d3;color:#201e1d">1a</a>
+<span><strong style="font-weight:800">Matchday</strong> · 6 pestañas → 4, el partido manda</span>
+</div>
+<div style="width:390px;height:844px;flex:none;border:12px solid #201e1d;border-radius:40px;overflow:hidden;background:#f3f2f2;display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(45,43,43,.22)">
+  <div style="flex:none;height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font:700 11px/1 Archivo;letter-spacing:.04em">
+    <span>11:45</span>
+    <span style="display:flex;gap:4px;align-items:center"><span style="width:18px;height:6px;background:#201e1d"></span><span style="width:6px;height:6px;background:#201e1d"></span></span>
+  </div>
+  <div style="flex:none;border-top:2px solid #201e1d;border-bottom:2px solid #201e1d;height:52px;display:flex;align-items:center;gap:10px;padding:0 16px">
+    <img src="public/UnionEscudo.png" alt="Escudo Unión" style="height:34px;width:auto;display:block">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <span style="font:800 15px/1 Archivo;letter-spacing:.06em">UNIÓN</span>
+      <span style="font:600 8px/1 Archivo;letter-spacing:.16em;color:#7d7979">SAN MARTÍN DE LOS ANDES</span>
+    </div>
+    <span style="margin-left:auto;font:800 9px/1 Archivo;letter-spacing:.14em;color:#ec3013">APERTURA 26</span>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;overflow-x:hidden">
+    <sc-if value="{{ aInicio }}" hint-placeholder-val="{{ true }}">
+      <div style="animation:u-up .26s ease both">
+        <div style="height:196px;overflow:hidden;background:#201e1d">
+          <img src="public/UnionPlantel-5.png" alt="Plantel Unión" style="width:100%;height:196px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.08)">
+        </div>
+        <div style="background:#ec3013;color:#fff;padding:16px 16px 18px;display:flex;flex-direction:column;gap:12px">
+          <span style="font:800 9px/1 Archivo;letter-spacing:.18em">PRÓXIMO PARTIDO · FECHA 14</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <img src="public/UnionEscudo.png" alt="" style="height:44px;width:auto;display:block">
+            <span style="font:800 30px/.95 Archivo;letter-spacing:-.01em">UNIÓN</span>
+            <span style="font:600 12px/1 Archivo;letter-spacing:.1em;opacity:.7">VS</span>
+            <span style="font:800 30px/.95 Archivo;letter-spacing:-.01em">DÍNAMO</span>
+          </div>
+          <div style="display:flex;gap:0;border-top:2px solid #fff;padding-top:10px">
+            <div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">DÍA</span><span style="font:700 12px/1 Archivo">DOM 31 MAY</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">HORA</span><span style="font:700 12px/1 Archivo">11:45 HS</span></div>
+            <div style="flex:1.4;display:flex;flex-direction:column;gap:3px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">CANCHA</span><span style="font:700 12px/1 Archivo">ALBINO STADIUM</span></div>
+          </div>
+          <button onClick="{{ noop }}" style="appearance:none;border:none;background:#fff;color:#201e1d;font:800 11px/1 Archivo;letter-spacing:.14em;text-align:left;padding:13px 14px;cursor:pointer" style-hover="background:#f8f4f4">CONFIRMAR PRESENCIA →</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid #201e1d">
+          <div style="padding:14px 12px;display:flex;flex-direction:column;gap:6px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">POSICIÓN</span><span style="font:800 26px/1 Archivo">7º</span></div>
+          <div style="padding:14px 12px;display:flex;flex-direction:column;gap:6px;border-left:2px solid #201e1d"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">PUNTOS</span><span style="font:800 26px/1 Archivo">11</span></div>
+          <div style="padding:14px 12px;display:flex;flex-direction:column;gap:6px;border-left:2px solid #201e1d"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">DIFERENCIA</span><span style="font:800 26px/1 Archivo;color:#ae1800">−15</span></div>
+        </div>
+
+        <div style="padding:16px 16px 6px;display:flex;align-items:baseline;justify-content:space-between">
+          <span style="font:800 13px/1 Archivo;letter-spacing:.12em">NOTICIAS</span>
+          <span style="font:600 9px/1 Archivo;letter-spacing:.12em;color:#7d7979">3 NUEVAS</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;padding:14px 16px;border-top:1px solid #d7d3d3;align-items:flex-start">
+              <img src="{{ n.img }}" alt="" style="width:76px;height:76px;object-fit:cover;flex:none;display:block;filter:grayscale(1) contrast(1.06)">
+              <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
+                <span style="font:800 8px/1.2 Archivo;letter-spacing:.14em;color:#ae1800;text-transform:uppercase">{{ n.kicker }}</span>
+                <span style="font:700 13px/1.3 Archivo;text-wrap:pretty">{{ n.title }}</span>
+                <span style="font:400 10px/1 Archivo;color:#7d7979">{{ n.place }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="border-top:2px solid #201e1d;margin-top:12px;padding:16px 0 4px">
+          <div style="padding:0 16px 12px;font:800 13px/1 Archivo;letter-spacing:.12em">ÚLTIMOS RESULTADOS</div>
+          <div style="display:flex;gap:0;overflow-x:auto;padding:0 16px 16px">
+            <sc-for list="{{ results }}" as="r" hint-placeholder-count="6">
+              <div style="flex:none;width:104px;border:2px solid #201e1d;border-right-width:0;padding:11px 10px;display:flex;flex-direction:column;gap:8px">
+                <span style="font:600 8px/1.2 Archivo;letter-spacing:.1em;color:#605d5d;text-transform:uppercase">{{ r.rival }}</span>
+                <span style="font:800 19px/1 Archivo">{{ r.score }}</span>
+                <span style="{{ r.st }}">{{ r.mark }}</span>
+              </div>
+            </sc-for>
+            <div style="flex:none;width:2px;background:#201e1d"></div>
+          </div>
+        </div>
+
+        <div style="border-top:2px solid #201e1d;padding:16px 0 24px">
+          <div style="padding:0 16px 12px;display:flex;align-items:baseline;justify-content:space-between">
+            <span style="font:800 13px/1 Archivo;letter-spacing:.12em">IMÁGENES</span>
+            <button onClick="{{ goClub }}" style="appearance:none;border:none;background:none;font:800 9px/1 Archivo;letter-spacing:.12em;color:#ae1800;cursor:pointer;padding:0">VER TODAS →</button>
+          </div>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding:0 16px">
+            <sc-for list="{{ photos }}" as="p" hint-placeholder-count="4">
+              <img src="{{ p }}" alt="" style="flex:none;width:168px;height:112px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06)">
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ aEquipo }}">
+      <div style="animation:u-in .24s ease both">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #201e1d">
+          <sc-for list="{{ aCats }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.go }}" style="{{ c.st }}">{{ c.short }}</button>
+          </sc-for>
+        </div>
+        <div style="padding:16px 16px 12px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #d7d3d3">
+          <span style="font:800 20px/1 Archivo;letter-spacing:.02em;text-transform:uppercase">{{ aCatLabel }}</span>
+          <span style="font:600 9px/1 Archivo;letter-spacing:.12em;color:#7d7979">{{ aCatCount }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ aPlayers }}" as="p" hint-placeholder-count="8">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #d7d3d3">
+              <span style="flex:none;width:34px;height:34px;background:#201e1d;color:#f3f2f2;font:800 13px/34px Archivo;text-align:center">{{ p.num }}</span>
+              <div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">
+                <span style="font:700 13px/1.2 Archivo;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</span>
+                <span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">{{ p.pos }}</span>
+              </div>
+              <sc-if value="{{ p.avatar }}">
+                <img src="{{ p.avatar }}" alt="" style="flex:none;width:38px;height:38px;object-fit:cover;display:block;filter:grayscale(1)">
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="height:24px"></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ aLiga }}">
+      <div style="animation:u-in .24s ease both">
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #201e1d">
+          <sc-for list="{{ aLigaSeg }}" as="s" hint-placeholder-count="2">
+            <button onClick="{{ s.go }}" style="{{ s.st }}">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ aTabla }}">
+          <div>
+            <div style="padding:16px 16px 10px;display:flex;flex-direction:column;gap:4px">
+              <span style="font:800 20px/1 Archivo;letter-spacing:.02em">ZONA A</span>
+              <span style="font:400 10px/1 Archivo;color:#7d7979">Apertura 2026 · Senior · Fecha 14</span>
+            </div>
+            <div style="display:grid;grid-template-columns:30px 1fr 34px 40px 40px;padding:8px 16px;border-top:2px solid #201e1d;border-bottom:2px solid #201e1d;font:800 8px/1 Archivo;letter-spacing:.12em;color:#605d5d">
+              <span>POS</span><span>EQUIPO</span><span style="text-align:center">PJ</span><span style="text-align:center">DIF</span><span style="text-align:right">PTS</span>
+            </div>
+            <sc-for list="{{ standings }}" as="row" hint-placeholder-count="8">
+              <div style="{{ row.st }}">
+                <span style="font:800 12px/1 Archivo;color:#7d7979">{{ row.pos }}</span>
+                <span style="font:700 13px/1 Archivo;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ row.name }}</span>
+                <span style="font:400 12px/1 Archivo;text-align:center;color:#605d5d">{{ row.pj }}</span>
+                <span style="font:400 12px/1 Archivo;text-align:center;color:#605d5d">{{ row.dif }}</span>
+                <span style="font:800 14px/1 Archivo;text-align:right">{{ row.pts }}</span>
+              </div>
+            </sc-for>
+            <div style="padding:12px 16px 24px;font:400 10px/1.5 Archivo;color:#7d7979">Los primeros cuatro clasifican. Unión cierra su primer torneo en Senior.</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ aFixture }}">
+          <div>
+            <div style="padding:16px 16px 12px;font:800 20px/1 Archivo;letter-spacing:.02em">FIXTURE</div>
+            <sc-for list="{{ fixture }}" as="f" hint-placeholder-count="8">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid #d7d3d3">
+                <span style="flex:none;font:600 8px/1 Archivo;letter-spacing:.1em;color:#7d7979;width:44px">F{{ f.n }}</span>
+                <div style="flex:1;display:flex;flex-direction:column;gap:4px;min-width:0">
+                  <span style="font:700 13px/1.2 Archivo">Unión — {{ f.rival }}</span>
+                  <span style="font:400 10px/1 Archivo;color:#7d7979">{{ f.date }} · Albino Stadium</span>
+                </div>
+                <span style="{{ f.st }}">{{ f.score }}</span>
+              </div>
+            </sc-for>
+            <div style="height:24px"></div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ aClub }}">
+      <div style="animation:u-in .24s ease both">
+        <div style="padding:16px 16px 12px;font:800 20px/1 Archivo;letter-spacing:.02em">EL CLUB</div>
+        <div style="border-top:2px solid #201e1d">
+          <img src="public/Entrenamiento.png" alt="Entrenamiento" style="width:100%;height:170px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06)">
+          <div style="background:#ec3013;color:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+            <span style="font:800 9px/1 Archivo;letter-spacing:.18em">TERCER TIEMPO · SÁBADO</span>
+            <span style="font:800 19px/1.15 Archivo">Asado después del partido de los máximos</span>
+            <span style="font:400 11px/1.4 Archivo;opacity:.85">Todos invitados a compartir.</span>
+          </div>
+        </div>
+        <div style="border-top:2px solid #201e1d;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+          <span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">ENTRENAMIENTOS</span>
+          <span style="font:800 16px/1.2 Archivo">Viernes 21 a 22 HS · Cancha Nº 2</span>
+          <span style="font:400 11px/1.4 Archivo;color:#605d5d">Todas las categorías de Unión.</span>
+        </div>
+        <div style="border-top:2px solid #201e1d;padding:14px 16px 10px;font:800 13px/1 Archivo;letter-spacing:.12em">GALERÍA</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:0 16px 16px">
+          <sc-for list="{{ photos }}" as="p" hint-placeholder-count="4">
+            <img src="{{ p }}" alt="" style="width:100%;height:112px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06)">
+          </sc-for>
+        </div>
+        <div style="border-top:2px solid #201e1d">
+          <sc-for list="{{ links }}" as="l" hint-placeholder-count="3">
+            <button onClick="{{ noop }}" style="appearance:none;border:none;border-bottom:1px solid #d7d3d3;background:none;width:100%;text-align:left;padding:15px 16px;font:800 11px/1 Archivo;letter-spacing:.12em;cursor:pointer;display:flex;justify-content:space-between" style-hover="background:#eae9e9">{{ l }}<span>→</span></button>
+          </sc-for>
+        </div>
+        <div style="padding:16px;font:400 9px/1 Archivo;color:#9b9797">Desarrollado por bRuno´s</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #201e1d">
+    <sc-for list="{{ aTabs }}" as="t" hint-placeholder-count="4">
+      <button onClick="{{ t.go }}" style="{{ t.st }}">{{ t.label }}</button>
+    </sc-for>
+  </div>
+</div>
+</div>
+
+<div id="1b" style="display:flex;flex-direction:column;gap:10px;flex:none;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Archivo;color:#605d5d">
+<a href="#1b" style="font:800 10px/1 Archivo;letter-spacing:.1em;padding:4px 7px;background:#d7d3d3;color:#201e1d">1b</a>
+<span><strong style="font-weight:800">Índice</strong> · sin barra de pestañas, todo desde una portada</span>
+</div>
+<div style="width:390px;height:844px;flex:none;border:12px solid #201e1d;border-radius:40px;overflow:hidden;background:#f3f2f2;display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(45,43,43,.22)">
+  <div style="flex:none;height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font:700 11px/1 Archivo;letter-spacing:.04em">
+    <span>11:45</span>
+    <span style="display:flex;gap:4px;align-items:center"><span style="width:18px;height:6px;background:#201e1d"></span><span style="width:6px;height:6px;background:#201e1d"></span></span>
+  </div>
+  <div style="flex:1;overflow-y:auto;overflow-x:hidden">
+    <sc-if value="{{ bIndex }}" hint-placeholder-val="{{ true }}">
+      <div style="animation:u-fade .24s ease both">
+        <div style="position:relative;height:330px;background:#201e1d;overflow:hidden">
+          <img src="public/UnionPlantel-9.png" alt="Plantel Unión" style="width:100%;height:330px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.12) brightness(.82)">
+          <img src="public/UnionEscudo.png" alt="Escudo Unión" style="position:absolute;top:18px;left:16px;height:66px;width:auto">
+          <div style="position:absolute;left:16px;bottom:18px;right:16px;display:flex;flex-direction:column;gap:6px;color:#fff">
+            <span style="font:800 9px/1 Archivo;letter-spacing:.2em;color:#fff;background:#ec3013;padding:5px 7px;align-self:flex-start">APERTURA 2026 · SENIOR</span>
+            <span style="font:900 42px/.92 Archivo;letter-spacing:-.02em">UNIÓN<br>S.M.A.</span>
+          </div>
+        </div>
+        <div style="background:#ec3013;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:2px solid #201e1d">
+          <span style="font:800 9px/1 Archivo;letter-spacing:.16em">FECHA 14</span>
+          <span style="font:800 15px/1 Archivo">DÍNAMO · DOM 11:45</span>
+          <span style="margin-left:auto;font:700 11px/1 Archivo">→</span>
+        </div>
+        <sc-for list="{{ bRows }}" as="r" hint-placeholder-count="6">
+          <button onClick="{{ r.go }}" style="appearance:none;border:none;border-bottom:2px solid #201e1d;background:none;width:100%;display:flex;align-items:center;gap:14px;padding:20px 16px;text-align:left;cursor:pointer" style-hover="background:#eae9e9">
+            <span style="font:800 11px/1 Archivo;letter-spacing:.06em;color:#ec3013;width:22px;flex:none">{{ r.n }}</span>
+            <span style="font:800 19px/1 Archivo;letter-spacing:.01em;text-transform:uppercase;flex:1">{{ r.label }}</span>
+            <span style="font:700 15px/1 Archivo;color:#7d7979">→</span>
+          </button>
+        </sc-for>
+        <div style="padding:18px 16px 26px;font:600 9px/1.6 Archivo;letter-spacing:.14em;color:#9b9797">UNIÓN SAN MARTÍN DE LOS ANDES<br>LIGA DE VETERANOS · SENIOR · MAXI · SÚPER MAXI · MASTER</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ bDetail }}">
+      <div style="animation:u-in .26s ease both">
+        <div style="position:sticky;top:0;background:#f3f2f2;border-bottom:2px solid #201e1d;z-index:2">
+          <button onClick="{{ goBIndex }}" style="appearance:none;border:none;background:none;padding:14px 16px 10px;font:800 10px/1 Archivo;letter-spacing:.16em;color:#ae1800;cursor:pointer;display:block">← ÍNDICE</button>
+          <div style="padding:0 16px 14px;font:900 26px/1 Archivo;letter-spacing:-.01em;text-transform:uppercase">{{ bTitle }}</div>
+        </div>
+
+        <sc-if value="{{ bMatch }}">
+          <div style="background:#ec3013;color:#fff;padding:24px 16px 26px;display:flex;flex-direction:column;gap:18px">
+            <span style="font:800 9px/1 Archivo;letter-spacing:.2em">FECHA 14 · LOCAL</span>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font:900 46px/.9 Archivo;letter-spacing:-.03em">UNIÓN</span>
+              <span style="font:600 13px/1 Archivo;letter-spacing:.14em;opacity:.8">VS</span>
+              <span style="font:900 46px/.9 Archivo;letter-spacing:-.03em">DÍNAMO</span>
+            </div>
+            <div style="border-top:2px solid #fff;padding-top:12px;display:flex;flex-direction:column;gap:8px">
+              <span style="font:700 14px/1 Archivo">DOMINGO 31 DE MAYO · 11:45 HS</span>
+              <span style="font:400 12px/1 Archivo;opacity:.85">Albino Stadium · San Martín de los Andes</span>
+            </div>
+            <button onClick="{{ noop }}" style="appearance:none;border:none;background:#fff;color:#201e1d;font:800 11px/1 Archivo;letter-spacing:.14em;text-align:left;padding:14px;cursor:pointer">CÓMO LLEGAR →</button>
+          </div>
+          <div style="padding:16px;font:400 12px/1.6 Archivo;color:#605d5d;text-wrap:pretty">En la ida Unión ganó 8 a 6, el partido con más goles del torneo.</div>
+        </sc-if>
+
+        <sc-if value="{{ bTabla }}">
+          <div>
+            <div style="display:grid;grid-template-columns:30px 1fr 40px 40px;padding:10px 16px;border-bottom:2px solid #201e1d;font:800 8px/1 Archivo;letter-spacing:.12em;color:#605d5d">
+              <span>POS</span><span>EQUIPO</span><span style="text-align:center">DIF</span><span style="text-align:right">PTS</span>
+            </div>
+            <sc-for list="{{ standingsB }}" as="row" hint-placeholder-count="8">
+              <div style="{{ row.st }}">
+                <span style="font:800 12px/1 Archivo;color:#7d7979">{{ row.pos }}</span>
+                <span style="font:700 14px/1 Archivo;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ row.name }}</span>
+                <span style="font:400 12px/1 Archivo;text-align:center;color:#605d5d">{{ row.dif }}</span>
+                <span style="font:800 15px/1 Archivo;text-align:right">{{ row.pts }}</span>
+              </div>
+            </sc-for>
+            <div style="height:24px"></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ bPlantel }}">
+          <div>
+            <sc-for list="{{ playersSenior }}" as="p" hint-placeholder-count="10">
+              <div style="display:flex;align-items:baseline;gap:12px;padding:13px 16px;border-bottom:1px solid #d7d3d3">
+                <span style="flex:none;width:26px;font:800 15px/1 Archivo;color:#ec3013">{{ p.num }}</span>
+                <span style="flex:1;font:700 14px/1.2 Archivo;min-width:0">{{ p.name }}</span>
+                <span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">{{ p.pos }}</span>
+              </div>
+            </sc-for>
+            <div style="height:24px"></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ bFixture }}">
+          <div>
+            <sc-for list="{{ fixture }}" as="f" hint-placeholder-count="8">
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid #d7d3d3">
+                <span style="flex:none;width:34px;font:600 8px/1 Archivo;letter-spacing:.1em;color:#9b9797">F{{ f.n }}</span>
+                <div style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0">
+                  <span style="font:700 13px/1.2 Archivo">{{ f.rival }}</span>
+                  <span style="font:400 10px/1 Archivo;color:#7d7979">{{ f.date }}</span>
+                </div>
+                <span style="{{ f.st }}">{{ f.score }}</span>
+              </div>
+            </sc-for>
+            <div style="height:24px"></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ bGaleria }}">
+          <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:24px">
+            <sc-for list="{{ photos }}" as="p" hint-placeholder-count="4">
+              <img src="{{ p }}" alt="" style="width:100%;height:230px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.08)">
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ bTercer }}">
+          <div>
+            <img src="public/Entrenamiento.png" alt="Entrenamiento" style="width:100%;height:200px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06)">
+            <div style="padding:18px 16px;display:flex;flex-direction:column;gap:10px;border-bottom:2px solid #201e1d">
+              <span style="font:800 9px/1 Archivo;letter-spacing:.18em;color:#ae1800">SÁBADO</span>
+              <span style="font:800 22px/1.15 Archivo">Asado después del partido de los máximos</span>
+              <span style="font:400 12px/1.5 Archivo;color:#605d5d">Todos invitados a compartir.</span>
+            </div>
+            <div style="padding:18px 16px;display:flex;flex-direction:column;gap:8px">
+              <span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">ENTRENAMIENTOS</span>
+              <span style="font:800 18px/1.2 Archivo">Viernes 21 a 22 HS · Cancha Nº 2</span>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</div>
+
+<div id="1c" style="display:flex;flex-direction:column;gap:10px;flex:none;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Archivo;color:#605d5d">
+<a href="#1c" style="font:800 10px/1 Archivo;letter-spacing:.1em;padding:4px 7px;background:#d7d3d3;color:#201e1d">1c</a>
+<span><strong style="font-weight:800">Póster</strong> · la categoría es el eje, tabla y plantel en hojas</span>
+</div>
+<div style="width:390px;height:844px;flex:none;border:12px solid #201e1d;border-radius:40px;overflow:hidden;background:#f3f2f2;display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(45,43,43,.22);position:relative">
+  <div style="flex:none;height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font:700 11px/1 Archivo;letter-spacing:.04em;background:#201e1d;color:#f3f2f2">
+    <span>11:45</span>
+    <span style="display:flex;gap:4px;align-items:center"><span style="width:18px;height:6px;background:#f3f2f2"></span><span style="width:6px;height:6px;background:#f3f2f2"></span></span>
+  </div>
+  <div style="flex:none;background:#201e1d;display:flex;align-items:center;gap:10px;padding:0 12px 10px">
+    <img src="public/UnionEscudo.png" alt="Escudo Unión" style="height:30px;width:auto;display:block">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);flex:1;gap:0">
+      <sc-for list="{{ cCats }}" as="c" hint-placeholder-count="4">
+        <button onClick="{{ c.go }}" style="{{ c.st }}">{{ c.short }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;overflow-x:hidden">
+    <div style="background:#ec3013;color:#fff;padding:20px 16px 24px;display:flex;flex-direction:column;gap:16px">
+      <span style="font:800 9px/1 Archivo;letter-spacing:.2em">{{ cKicker }}</span>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font:600 11px/1 Archivo;letter-spacing:.16em;opacity:.8">UNIÓN RECIBE A</span>
+        <span style="font:900 50px/1.02 Archivo;letter-spacing:-.03em">DÍNAMO</span>
+      </div>
+      <div style="border-top:2px solid #fff;padding-top:12px;display:flex;gap:0">
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">DOMINGO</span><span style="font:800 17px/1 Archivo">31 MAY</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">HORA</span><span style="font:800 17px/1 Archivo">11:45</span></div>
+        <div style="flex:1.3;display:flex;flex-direction:column;gap:4px"><span style="font:600 8px/1 Archivo;letter-spacing:.14em;opacity:.75">CANCHA</span><span style="font:800 17px/1 Archivo">ALBINO</span></div>
+      </div>
+    </div>
+
+    <div style="border-bottom:2px solid #201e1d;padding:14px 0">
+      <div style="padding:0 16px 10px;font:800 10px/1 Archivo;letter-spacing:.14em;color:#605d5d">RACHA · ÚLTIMOS 6</div>
+      <div style="display:flex;gap:6px;padding:0 16px">
+        <sc-for list="{{ streak }}" as="s" hint-placeholder-count="6">
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+            <span style="{{ s.st }}">{{ s.mark }}</span>
+            <span style="font:600 8px/1.2 Archivo;color:#7d7979">{{ s.score }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <button onClick="{{ openTabla }}" style="appearance:none;border:none;border-bottom:2px solid #201e1d;background:#201e1d;color:#f3f2f2;width:100%;text-align:left;padding:22px 16px;cursor:pointer;display:flex;align-items:baseline;gap:12px" style-hover="background:#444141">
+      <span style="font:800 20px/1 Archivo;letter-spacing:.02em;flex:1">TABLA DE POSICIONES</span>
+      <span style="font:800 13px/1 Archivo;color:#ff9783">7º</span>
+      <span style="font:700 14px/1 Archivo">↑</span>
+    </button>
+    <button onClick="{{ openPlantel }}" style="appearance:none;border:none;border-bottom:2px solid #201e1d;background:none;color:#201e1d;width:100%;text-align:left;padding:22px 16px;cursor:pointer;display:flex;align-items:baseline;gap:12px" style-hover="background:#eae9e9">
+      <span style="font:800 20px/1 Archivo;letter-spacing:.02em;flex:1">PLANTEL</span>
+      <span style="font:800 13px/1 Archivo;color:#ae1800">{{ cCount }}</span>
+      <span style="font:700 14px/1 Archivo">↑</span>
+    </button>
+
+    <div style="padding:16px 0 24px">
+      <div style="padding:0 16px 10px;font:800 10px/1 Archivo;letter-spacing:.14em;color:#605d5d">DEL PARTIDO</div>
+      <div style="display:flex;gap:6px;overflow-x:auto;padding:0 16px">
+        <sc-for list="{{ photos }}" as="p" hint-placeholder-count="4">
+          <img src="{{ p }}" alt="" style="flex:none;width:200px;height:250px;object-fit:cover;display:block;filter:grayscale(1) contrast(1.08)">
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ cSheetOpen }}">
+    <div style="position:absolute;inset:0;background:rgba(32,30,29,.5);animation:u-fade .2s ease both" onClick="{{ closeSheet }}"></div>
+  </sc-if>
+  <sc-if value="{{ cSheetOpen }}">
+    <div style="position:absolute;left:0;right:0;bottom:0;top:96px;background:#f3f2f2;border-top:2px solid #201e1d;display:flex;flex-direction:column;animation:u-sheet .28s cubic-bezier(.2,.8,.2,1) both">
+      <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:2px solid #201e1d">
+        <span style="font:900 20px/1 Archivo;text-transform:uppercase">{{ cSheetTitle }}</span>
+        <button onClick="{{ closeSheet }}" style="appearance:none;border:none;background:none;font:800 10px/1 Archivo;letter-spacing:.14em;color:#ae1800;cursor:pointer;padding:0">CERRAR ↓</button>
+      </div>
+      <div style="flex:1;overflow-y:auto">
+        <sc-if value="{{ cSheetTabla }}">
+          <div>
+            <sc-for list="{{ standingsB }}" as="row" hint-placeholder-count="8">
+              <div style="{{ row.st }}">
+                <span style="font:800 12px/1 Archivo;color:#7d7979">{{ row.pos }}</span>
+                <span style="font:700 14px/1 Archivo;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ row.name }}</span>
+                <span style="font:400 12px/1 Archivo;text-align:center;color:#605d5d">{{ row.dif }}</span>
+                <span style="font:800 15px/1 Archivo;text-align:right">{{ row.pts }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ cSheetPlantel }}">
+          <div>
+            <sc-for list="{{ cPlayers }}" as="p" hint-placeholder-count="10">
+              <div style="display:flex;align-items:baseline;gap:12px;padding:12px 16px;border-bottom:1px solid #d7d3d3">
+                <span style="flex:none;width:26px;font:800 15px/1 Archivo;color:#ec3013">{{ p.num }}</span>
+                <span style="flex:1;font:700 14px/1.2 Archivo;min-width:0">{{ p.name }}</span>
+                <span style="font:600 8px/1 Archivo;letter-spacing:.14em;color:#7d7979">{{ p.pos }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="height:20px"></div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</div>
+
+</div>
+<p style="margin:26px 0 0;font:400 12px/1.5 Archivo;color:#7d7979">Probá pedir: «más como <a href="#1a" style="font-weight:800">1a</a> pero con el índice de <a href="#1b" style="font-weight:800">1b</a>» · «llevá el rojo de <a href="#1c" style="font-weight:800">1c</a> a todas» · «sumá una pantalla de jugador»</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:1000}}">
+class Component extends DCLogic {
+  state = { aTab: 'inicio', aLiga: 'tabla', aCat: 'senior', bScreen: 'index', cCat: 'senior', cSheet: null };
+
+  squads = {
+    senior: ["1|Silva, Facundo Lujan|DEL|avatar-1.png","2|Navarro, Cesar Andres|MED|avatar-2.png","3|Figueroa, Pablo Martin|DEF|avatar-3.png","4|Figueroa, Nicolas Matias|MED|avatar-4.png","5|Durbhan, Sergio Sebastian|DEF|avatar-5.png","6|Castro, Fernando Ezequiel|MED|avatar-6.png","7|Soto, Pedro Dario|DEF|avatar-7.png","8|Corso, Luis Andres|DEF|avatar-8.png","9|Figueroa, Cristian Leonardo|MED|avatar-9.png","10|Egea, Rodrigo Ariel|MED|avatar-10.png","11|Soto, Adrian Ezequiel|DEF|avatar-11.png","12|Barria, Jonatan David|DEL|avatar-12.png","13|Jara Neira, Carlos|MED|","14|Figueroa, Jorge Luis|DEF|","15|Salazar, Bruno|MED|","16|Flores, Maximiliano Ricardo|MED|","17|Villegas, Cesar Oscar|DEF|","18|Vilchez, Jorge Luis|MED|","19|Di Sciascio, Darien Emanuel|MED|","21|Oliva, Horacio Sebastian|ARQ|","DT|Flores, Facundo Emilio|DT|"],
+    maxi: ["DT|Mamuchi, Dario Raul|DT|","2|Brocardo, Martin Alberto|JUG|","3|Rodriguez Basso, Emiliano Alberto|JUG|","4|Gasparro, Diego Gabriel|JUG|","5|Barruti, Facundo Esequiel|JUG|","6|Brizuela, Juan Ignacio|JUG|","7|Pissaco, Carlos Nicolas|JUG|","8|Baron, Alejandro David|JUG|","9|Sierra, Lucas Marcelo|JUG|","10|Alvarez, Lucas Santiago|JUG|","11|Lagrost, Roberto Esteban|JUG|","12|Bagnat, Maximiliano|JUG|","13|De Miguel, Fernando Agustin|JUG|","14|Carrizo, Sebastian Fernando|JUG|","15|Andreu, Gustavo Rene|JUG|","16|Garcia Lemos, Carlos Alberto|JUG|","17|Caldentey, Ernesto|JUG|","18|Berretta, Fernando|JUG|","19|Jara, Cristian|JUG|","20|Romero, Pablo Gaston|JUG|","21|Altube, Mauro Gastos|JUG|","22|Prieto, Marcelo|JUG|","23|Ordoñez, Augusto|JUG|","24|Morate, Christian Alejandro|JUG|"],
+    supermaxi: ["AC|Muñoz, Eliseo Moises|AC|","2|Dutto, Pablo Fernando|JUG|","3|Almada, Gustavo Daniel|JUG|","4|Vranken, Christian Joel|JUG|","5|Ayala, Emiliano Daniel|JUG|","6|Houssey, Agustin|JUG|","7|Tacone, Alejandro Ruben|JUG|","8|Nuske, Humberto Fredy|JUG|","9|Garnica, Marcelo|JUG|","10|Pellegrini, Alejandro Julian|JUG|","11|Baltazar, Alberto David|JUG|","12|Bischoff, Marcelo Martin|JUG|","13|Lopez, Pablo Daniel|JUG|","14|Amil, Javier Sebastian|JUG|","15|Blanco, Gustavo Agustin|JUG|","16|Costa, Sergio Daniel|JUG|","17|Galan, Alejandro Daniel|JUG|","18|Laguna, Maximiliano Luis|JUG|","19|Guerrero, Damian|JUG|","20|Conde, Ariel Fernando|JUG|","21|Vera, Daniel Gustavo|JUG|"],
+    master: ["1|Graziano, Jorge|JUG|","2|Agnone, Hector|JUG|","3|Moreno, Antonio|JUG|","4|Cabrera, Abel Alcide|JUG|","5|Payal, Leopoldo|JUG|","6|Astete, Guillermo|JUG|","7|Andrada, Alejandro|JUG|","8|Bravo, Argentino|JUG|","9|Huenteo, Domingo|JUG|","10|Urra Ponce, Sergio|JUG|","11|Cornaló, Fabian Hector|JUG|","12|Rodriguez, Candelario Omar|JUG|","13|Quintana Fica, Carlos M|JUG|","14|Coliluan, Ernesto|JUG|","15|Rimas, Adrian Horacio|JUG|","16|Castillo, Santiago|JUG|","17|Malagueño, Jose Gabriel|JUG|","18|Kuasñosky, Gustavo Fabian|JUG|","19|Cavalcanti, Jose Maria|JUG|","20|Lavanderos, Lindor|JUG|","21|Sepulveda, Modesto Honorio|JUG|","22|Jara, Tomas Daniel|JUG|","23|Saavedra, Nelson Ruben|JUG|","24|Fernandez, Edgar Alfredo|JUG|","25|Esteves, Emilio|JUG|","26|Batifora, Christian|JUG|","27|Barreiro, Cristian|JUG|","28|Tevez, Mario|JUG|","29|Valiña Lema, Javier Leonel|JUG|"]
+  };
+
+  catLabels = { senior: 'Senior', maxi: 'Maxi', supermaxi: 'Súper Maxi', master: 'Master' };
+  catShort = { senior: 'SENIOR', maxi: 'MAXI', supermaxi: 'S. MAXI', master: 'MASTER' };
+
+  tableRows = ["1|Frontera|14|+36|33","2|Comunicaciones|14|+17|27","3|Las Rosas|14|+13|24","4|Arenal|14|−3|24","5|Sarmiento|14|+14|22","6|Vélez|14|−16|18","7|Unión|14|−15|11","8|Dinamo|14|−46|0"];
+
+  fixtureRows = ["1|Frontera|Dom 08 Mar|1 - 2","2|Las Rosas|Mar 10 Mar|1 - 1","3|Sarmiento|Dom 15 Mar|2 - 3","4|Vélez|Lun 23 Mar|1 - 1","5|Arenal|Dom 29 Mar|1 - 4","6|Las Rosas|Mié 08 Abr|2 - 3","7|Comunicaciones|Dom 12 Abr|3 - 2","8|Dínamo|Dom 19 Abr|8 - 6","9|Frontera|Dom 26 Abr|1 - 7","10|Sarmiento|Vie 01 May|1 - 4","11|Vélez|Vie 08 May|0 - 1","12|Arenal|Dom 17 May|1 - 3","13|Comunicaciones|Dom 24 May|—","14|Dínamo|Dom 31 May|—"];
+
+  parsePlayer(s) {
+    const p = s.split('|');
+    return { num: p[0], name: p[1], pos: p[2], avatar: p[3] ? 'public/' + p[3] : '' };
+  }
+
+  outcome(score) {
+    if (!score || score === '—') return { mark: '—', kind: 'none' };
+    const a = parseInt(score.split(' - ')[0], 10), b = parseInt(score.split(' - ')[1], 10);
+    if (a > b) return { mark: 'G', kind: 'g' };
+    if (a === b) return { mark: 'E', kind: 'e' };
+    return { mark: 'P', kind: 'p' };
+  }
+
+  markStyle(kind) {
+    const base = { display: 'inline-block', width: '22px', height: '22px', font: '800 12px/22px Archivo', textAlign: 'center', letterSpacing: '.02em' };
+    if (kind === 'g') return Object.assign({}, base, { background: '#201e1d', color: '#f3f2f2' });
+    if (kind === 'e') return Object.assign({}, base, { border: '2px solid #201e1d', width: '18px', height: '18px', lineHeight: '18px', color: '#201e1d' });
+    if (kind === 'p') return Object.assign({}, base, { background: '#ec3013', color: '#fff' });
+    return Object.assign({}, base, { border: '2px solid #d7d3d3', width: '18px', height: '18px', lineHeight: '18px', color: '#9b9797' });
+  }
+
+  scoreBox(kind) {
+    const base = { flex: 'none', minWidth: '58px', textAlign: 'center', padding: '7px 8px', font: '800 13px/1 Archivo', border: '2px solid #201e1d' };
+    if (kind === 'p') return Object.assign({}, base, { borderColor: '#ec3013', color: '#ae1800' });
+    if (kind === 'none') return Object.assign({}, base, { borderColor: '#bab6b6', color: '#9b9797' });
+    return base;
+  }
+
+  segStyle(active, first) {
+    return {
+      appearance: 'none', border: 'none', borderLeft: first ? 'none' : '2px solid #201e1d',
+      background: active ? '#ec3013' : 'transparent', color: active ? '#fff' : '#201e1d',
+      font: '800 10px/1 Archivo', letterSpacing: '.12em', textTransform: 'uppercase',
+      textAlign: 'left', padding: '14px 10px', cursor: 'pointer'
+    };
+  }
+
+  tabStyle(active, first) {
+    return {
+      appearance: 'none', border: 'none', borderLeft: first ? 'none' : '2px solid #201e1d',
+      background: active ? '#ec3013' : 'transparent', color: active ? '#fff' : '#201e1d',
+      font: '800 10px/1 Archivo', letterSpacing: '.1em', textTransform: 'uppercase',
+      textAlign: 'left', padding: '18px 8px 24px', cursor: 'pointer'
+    };
+  }
+
+  darkCatStyle(active) {
+    return {
+      appearance: 'none', border: 'none', borderBottom: active ? '3px solid #ec3013' : '3px solid transparent',
+      background: 'transparent', color: active ? '#fff' : '#9b9797',
+      font: '800 9px/1 Archivo', letterSpacing: '.1em', textAlign: 'left', padding: '10px 6px 8px', cursor: 'pointer'
+    };
+  }
+
+  rowStyle(cols, isUnion) {
+    return {
+      display: 'grid', gridTemplateColumns: cols, alignItems: 'center', gap: '0',
+      padding: '12px 16px', borderBottom: '1px solid #d7d3d3',
+      background: isUnion ? '#ffe0d9' : 'transparent'
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const set = (k, v) => () => this.setState({ [k]: v });
+    const photos = ['public/UnionPlantel-5.png', 'public/UnionPlantel-2.png', 'public/UnionPlantel-9.png', 'public/Entrenamiento.png'];
+
+    const standings = this.tableRows.map(r => {
+      const p = r.split('|');
+      return { pos: p[0], name: p[1], pj: p[2], dif: p[3], pts: p[4], st: this.rowStyle('30px 1fr 34px 40px 40px', p[1] === 'Unión') };
+    });
+    const standingsB = standings.map(r => Object.assign({}, r, { st: this.rowStyle('30px 1fr 40px 40px', r.name === 'Unión') }));
+
+    const fixture = this.fixtureRows.map(r => {
+      const p = r.split('|');
+      const o = this.outcome(p[3]);
+      return { n: p[0], rival: p[1], date: p[2], score: p[3], st: this.scoreBox(o.kind) };
+    });
+
+    const played = fixture.filter(f => f.score !== '—');
+    const last6 = played.slice(-6);
+    const results = last6.map(f => {
+      const o = this.outcome(f.score);
+      return { rival: f.rival, score: f.score, mark: o.mark, st: this.markStyle(o.kind) };
+    });
+    const streak = results.map(r => ({ mark: r.mark, score: r.score, st: r.st }));
+
+    const cats = ['senior', 'maxi', 'supermaxi', 'master'];
+    const aCats = cats.map((k, i) => ({ short: this.catShort[k], go: set('aCat', k), st: this.segStyle(s.aCat === k, i === 0) }));
+    const cCats = cats.map(k => ({ short: this.catShort[k], go: set('cCat', k), st: this.darkCatStyle(s.cCat === k) }));
+
+    const aPlayers = this.squads[s.aCat].map(p => this.parsePlayer(p));
+    const cPlayers = this.squads[s.cCat].map(p => this.parsePlayer(p));
+
+    const aTabList = [['inicio', 'Inicio'], ['equipo', 'Equipo'], ['liga', 'Liga'], ['club', 'Club']];
+    const aTabs = aTabList.map((t, i) => ({ label: t[1], go: set('aTab', t[0]), st: this.tabStyle(s.aTab === t[0], i === 0) }));
+
+    const aLigaSeg = [['tabla', 'Tabla'], ['fixture', 'Fixture']].map((t, i) => ({ label: t[1], go: set('aLiga', t[0]), st: this.segStyle(s.aLiga === t[0], i === 0) }));
+
+    const bList = [['match', 'Próximo partido'], ['tabla', 'Tabla de posiciones'], ['plantel', 'Plantel Senior'], ['fixture', 'Fixture y resultados'], ['galeria', 'Galería'], ['tercer', 'Tercer tiempo']];
+    const bRows = bList.map((r, i) => ({ n: '0' + (i + 1), label: r[1], go: set('bScreen', r[0]) }));
+    const bTitles = { match: 'Próximo partido', tabla: 'Zona A', plantel: 'Plantel Senior', fixture: 'Fixture', galeria: 'Galería', tercer: 'Tercer tiempo' };
+
+    return {
+      noop: () => {}, photos, standings, standingsB, fixture, results, streak,
+      news: [
+        { kicker: 'Atención · solo este viernes', title: '¡Juega la Selección! Se posterga el entrenamiento: arranca a las 22 HS.', place: 'Cancha Nº 2 de veteranos', img: 'public/Entrenamiento.png' },
+        { kicker: 'Campeón · Apertura 2026 Senior', title: 'Felicitaciones a Comunicaciones, nuevo campeón del Apertura en Senior.', place: 'Liga de veteranos', img: 'public/UnionPlantel-2.png' },
+        { kicker: 'Entrenamiento · nuevo horario', title: 'Todos los viernes de 21 a 22 HS, en todas las categorías de Unión.', place: 'Cancha Nº 2 de veteranos', img: 'public/UnionPlantel-9.png' }
+      ],
+      links: ['INSTAGRAM', 'GRUPO DE WHATSAPP', 'FACEBOOK'],
+
+      aInicio: s.aTab === 'inicio', aEquipo: s.aTab === 'equipo', aLiga: s.aTab === 'liga', aClub: s.aTab === 'club',
+      aTabs, aCats, aPlayers, aLigaSeg,
+      aTabla: s.aLiga === 'tabla', aFixture: s.aLiga === 'fixture',
+      aCatLabel: this.catLabels[s.aCat], aCatCount: this.squads[s.aCat].length + ' integrantes',
+      goClub: set('aTab', 'club'),
+
+      bIndex: s.bScreen === 'index', bDetail: s.bScreen !== 'index', goBIndex: set('bScreen', 'index'),
+      bRows, bTitle: bTitles[s.bScreen] || '',
+      bMatch: s.bScreen === 'match', bTabla: s.bScreen === 'tabla', bPlantel: s.bScreen === 'plantel',
+      bFixture: s.bScreen === 'fixture', bGaleria: s.bScreen === 'galeria', bTercer: s.bScreen === 'tercer',
+      playersSenior: this.squads.senior.map(p => this.parsePlayer(p)),
+
+      cCats, cPlayers, cCount: this.squads[s.cCat].length + ' INT.',
+      cKicker: 'APERTURA 2026 · ' + this.catShort[s.cCat] + ' · FECHA 14',
+      cSheetOpen: !!s.cSheet, cSheetTabla: s.cSheet === 'tabla', cSheetPlantel: s.cSheet === 'plantel',
+      cSheetTitle: s.cSheet === 'tabla' ? 'Zona A · Senior' : 'Plantel ' + this.catLabels[s.cCat],
+      openTabla: set('cSheet', 'tabla'), openPlantel: set('cSheet', 'plantel'), closeSheet: set('cSheet', null)
+    };
+  }
+}
+</script>
+</body>
+</html>
