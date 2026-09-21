@@ -42,8 +42,8 @@ function outcome(score: string): 'g' | 'e' | 'p' | 'none' {
   return a > b ? 'g' : a === b ? 'e' : 'p';
 }
 
-function ScoreBox({ score }: { score: string }) {
-  const kind = outcome(score);
+function ScoreBox({ score, neutral = false }: { score: string; neutral?: boolean }) {
+  const kind = neutral && outcome(score) !== 'none' ? 'g' : outcome(score);
   const base: React.CSSProperties = {
     flexShrink: 0, minWidth: 54, textAlign: 'center',
     padding: '6px 8px', fontWeight: 800, fontSize: 12, lineHeight: 1,
@@ -379,7 +379,7 @@ function CruceCard({ home, away, date, time, resultado, torneo }: { home: string
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Team name={home} />
         {resultado
-          ? <ScoreBox score={resultado} />
+          ? <ScoreBox score={resultado} neutral />
           : <span style={{ flexShrink: 0, fontWeight: 800, fontSize: 12, color: C.light, padding: '0 8px' }}>VS</span>}
         <Team name={away} />
       </div>
