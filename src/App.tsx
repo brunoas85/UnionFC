@@ -102,7 +102,13 @@ export default function App() {
         const { data, error } = await supabase
           .from('other_matches').select('*').order('fecha', { ascending: true });
         if (error) throw error;
-        if (data) setOtherMatches(data);
+        if (data) {
+          // Los cruces de Supabase pisan a los locales (para conservar resultados cargados ahí);
+          // los locales completan las fechas que la tabla remota todavía no tiene.
+          const key = (m: any) => `${m.torneo}|${m.fecha}|${m.home}|${m.away}`;
+          const remote = new Set(data.map(key));
+          setOtherMatches([...data, ...OTHER_MATCHES.filter((m) => !remote.has(key(m)))]);
+        }
       } catch {
         setOtherMatches(OTHER_MATCHES);
       } finally {
