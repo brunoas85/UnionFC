@@ -12,6 +12,13 @@ import {
   TEAM_LOGOS,
   OTHER_MATCHES,
   CLUB_INFO,
+  PLAYERS_MAXI,
+  PLAYERS_SUPERMAXI,
+  PLAYERS_MASTER,
+  FIXTURE_MAXI,
+  FIXTURE_SUPERMAXI,
+  FIXTURE_MASTER,
+  computeCategoryRecord,
 } from './data';
 import { supabase } from './supabaseClient';
 
@@ -30,7 +37,7 @@ const C = {
 const FONT = 'Archivo, system-ui, sans-serif';
 
 // ── Types ──────────────────────────────────────────────────────
-type Screen = 'index' | 'match' | 'tabla' | 'plantel' | 'fixture' | 'galeria' | 'tercer';
+type Screen = 'index' | 'match' | 'tabla' | 'plantel' | 'fixture' | 'galeria' | 'tercer' | 'categorias';
 
 // ── Helpers ────────────────────────────────────────────────────
 function outcome(score: string): 'g' | 'e' | 'p' | 'none' {
@@ -124,6 +131,7 @@ export default function App() {
     match: 'PRÓXIMO PARTIDO', tabla: 'POSICIONES',
     plantel: 'PLANTEL SENIOR', fixture: 'FIXTURE',
     galeria: 'GALERÍA', tercer: 'TERCER TIEMPO',
+    categorias: 'OTRAS CATEGORÍAS',
   };
 
   return (
@@ -171,6 +179,7 @@ export default function App() {
             {screen === 'fixture' && <FixtureScreen fixture={fixtureList} loading={loadingFixture} otherMatches={otherMatches} />}
             {screen === 'galeria' && <GaleriaScreen />}
             {screen === 'tercer'  && <TercerScreen />}
+            {screen === 'categorias' && <CategoriasScreen />}
           </motion.div>
         )}
       </AnimatePresence>
@@ -187,6 +196,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
     { n: '04', label: 'FIXTURE Y RESULTADOS', s: 'fixture' },
     { n: '05', label: 'GALERÍA',              s: 'galeria' },
     { n: '06', label: 'TERCER TIEMPO',        s: 'tercer'  },
+    { n: '07', label: 'OTRAS CATEGORÍAS',     s: 'categorias' },
   ];
 
   return (
@@ -203,10 +213,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
           alt="Escudo Unión"
           style={{ position: 'absolute', top: 18, left: 16, height: 100, width: 'auto' }}
         />
-        <div style={{ position: 'absolute', left: 16, bottom: 18, right: 16, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, color: '#fff' }}>
-          <span style={{ fontWeight: 800, fontSize: 9, letterSpacing: '.2em', background: C.red, padding: '5px 7px' }}>
-            SENIOR
-          </span>
+        <div style={{ position: 'absolute', left: 16, bottom: 8, right: 16, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, color: '#fff' }}>
           <span style={{ fontWeight: 900, fontSize: 42, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
             UNIÓN<br />S.M.A.
           </span>
@@ -286,7 +293,7 @@ function MatchScreen() {
       </div>
 
       <div style={{ padding: '16px 16px', fontWeight: 400, fontSize: 12, lineHeight: 1.6, color: C.mid }}>
-        3er encuentro de Unión en el Clausura 2026.
+        4to encuentro de Unión en el Clausura 2026.
       </div>
 
       {/* Noticias */}
@@ -551,10 +558,182 @@ function GaleriaScreen() {
   );
 }
 
+// ── Otras categorías (Maxi / Súper Maxi / Máster) ────────────────
+const CATEGORIES: { key: string; label: string; tag: string; players: any[]; fixture: any[] }[] = [
+  { key: 'maxi', label: 'MAXI', tag: 'MAXI', players: PLAYERS_MAXI, fixture: FIXTURE_MAXI },
+  { key: 'supermaxi', label: 'SÚPER MAXI', tag: 'SÚPER MAXI', players: PLAYERS_SUPERMAXI, fixture: FIXTURE_SUPERMAXI },
+  { key: 'master', label: 'MÁSTER', tag: 'MÁSTER', players: PLAYERS_MASTER, fixture: FIXTURE_MASTER },
+];
+
+function sortByNumber(players: any[]) {
+  return [...players].sort((a, b) => {
+    const nA = isNaN(parseInt(a.number)) ? Infinity : parseInt(a.number);
+    const nB = isNaN(parseInt(b.number)) ? Infinity : parseInt(b.number);
+    return nA - nB;
+  });
+}
+
+function CategoriasScreen() {
+  const [catKey, setCatKey] = useState<string | null>(null);
+  const [section, setSection] = useState<'plantel' | 'fixture' | 'tabla' | null>(null);
+
+  const cat = CATEGORIES.find(c => c.key === catKey) ?? null;
+
+  // Nivel 0 — elegir categoría
+  if (!cat) {
+    return (
+      <div>
+        {CATEGORIES.map((c, i) => (
+          <button
+            key={c.key}
+            onClick={() => setCatKey(c.key)}
+            style={{
+              appearance: 'none', border: 'none', borderBottom: `2px solid ${C.dark}`,
+              background: 'none', width: '100%', display: 'flex', alignItems: 'center',
+              gap: 14, padding: '20px 16px', textAlign: 'left', cursor: 'pointer',
+              fontFamily: FONT,
+            }}
+          >
+            <span style={{ fontWeight: 800, fontSize: 11, letterSpacing: '.06em', color: C.red, width: 22, flexShrink: 0 }}>{String(i + 1).padStart(2, '0')}</span>
+            <span style={{ fontWeight: 800, fontSize: 19, lineHeight: 1, letterSpacing: '.01em', textTransform: 'uppercase', flex: 1, color: C.dark }}>{c.label}</span>
+            <span style={{ fontWeight: 700, fontSize: 15, color: C.light }}>→</span>
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  // Nivel 1 — elegir sección dentro de la categoría
+  if (!section) {
+    const options: { n: string; label: string; s: 'plantel' | 'fixture' | 'tabla' }[] = [
+      { n: '01', label: 'PLANTEL', s: 'plantel' },
+      { n: '02', label: 'FIXTURE', s: 'fixture' },
+      { n: '03', label: 'TABLA', s: 'tabla' },
+    ];
+    return (
+      <div>
+        <div
+          onClick={() => setCatKey(null)}
+          style={{ padding: '14px 16px', fontWeight: 800, fontSize: 11, letterSpacing: '.08em', color: C.dark, cursor: 'pointer', borderBottom: `2px solid ${C.dark}` }}
+        >
+          ← OTRAS CATEGORÍAS
+        </div>
+        <div style={{ padding: '14px 16px 4px', fontWeight: 900, fontSize: 22, letterSpacing: '-.01em', textTransform: 'uppercase' }}>{cat.label}</div>
+        {options.map(o => (
+          <button
+            key={o.s}
+            onClick={() => setSection(o.s)}
+            style={{
+              appearance: 'none', border: 'none', borderBottom: `2px solid ${C.dark}`,
+              background: 'none', width: '100%', display: 'flex', alignItems: 'center',
+              gap: 14, padding: '20px 16px', textAlign: 'left', cursor: 'pointer',
+              fontFamily: FONT,
+            }}
+          >
+            <span style={{ fontWeight: 800, fontSize: 11, letterSpacing: '.06em', color: C.red, width: 22, flexShrink: 0 }}>{o.n}</span>
+            <span style={{ fontWeight: 800, fontSize: 19, lineHeight: 1, letterSpacing: '.01em', textTransform: 'uppercase', flex: 1, color: C.dark }}>{o.label}</span>
+            <span style={{ fontWeight: 700, fontSize: 15, color: C.light }}>→</span>
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  // Nivel 2 — contenido de la sección
+  const BackHeader = () => (
+    <div
+      onClick={() => setSection(null)}
+      style={{ padding: '14px 16px', fontWeight: 800, fontSize: 11, letterSpacing: '.08em', color: C.dark, cursor: 'pointer', borderBottom: `2px solid ${C.dark}` }}
+    >
+      ← {cat.label}
+    </div>
+  );
+
+  if (section === 'plantel') {
+    const players = sortByNumber(cat.players);
+    return (
+      <div>
+        <BackHeader />
+        {players.map((p, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '13px 16px', borderBottom: `1px solid ${C.border}` }}>
+            <span style={{ width: 26, textAlign: 'center', fontWeight: 800, fontSize: 13, color: C.red, flexShrink: 0 }}>{p.number}</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 }}>
+              <span style={{ fontWeight: 700, fontSize: 13, lineHeight: 1.2 }}>{p.name}</span>
+              <span style={{ fontWeight: 400, fontSize: 10, color: C.light }}>{p.position}</span>
+            </div>
+          </div>
+        ))}
+        <div style={{ height: 24 }} />
+      </div>
+    );
+  }
+
+  if (section === 'fixture') {
+    return (
+      <div>
+        <BackHeader />
+        <div style={{ padding: '14px 16px 10px', fontWeight: 800, fontSize: 11, letterSpacing: '.1em', color: C.mid }}>APERTURA 2026</div>
+        {cat.fixture.map((f: any, i: number) => (
+          <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '13px 16px', borderBottom: `1px solid ${C.border}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ flexShrink: 0, width: 18, fontWeight: 600, fontSize: 8, letterSpacing: '.1em', color: C.vLight }}>F{f.match_number}</span>
+              <img src={CLUB_INFO.logo} alt="Unión" style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
+              <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Unión</span>
+              <ScoreBox score={f.resultado} />
+              <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, textAlign: 'right', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f.rival}</span>
+              {f.logo
+                ? <img src={f.logo} alt={f.rival} style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
+                : <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: '50%', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 9, color: C.light }}>{f.rival.slice(0, 2).toUpperCase()}</div>}
+            </div>
+            <span style={{ fontWeight: 400, fontSize: 10, color: C.light, paddingLeft: 28 }}>{f.date}{f.time && f.time !== 'Libre' ? ` · ${f.time} HS` : ''}</span>
+          </div>
+        ))}
+        <div style={{ height: 24 }} />
+      </div>
+    );
+  }
+
+  // section === 'tabla' — ficha de Unión (no hay cruces de los demás equipos todavía)
+  const rec = computeCategoryRecord(cat.fixture);
+  const Stat = ({ label, value }: { label: string; value: number | string }) => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '14px 4px' }}>
+      <span style={{ fontWeight: 900, fontSize: 20, lineHeight: 1 }}>{value}</span>
+      <span style={{ fontWeight: 700, fontSize: 8, letterSpacing: '.1em', color: C.light }}>{label}</span>
+    </div>
+  );
+  return (
+    <div>
+      <BackHeader />
+      <div style={{ padding: '16px 16px 4px', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <img src={CLUB_INFO.logo} alt="Unión" style={{ width: 40, height: 40, objectFit: 'contain' }} />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <span style={{ fontWeight: 900, fontSize: 18, letterSpacing: '-.01em' }}>UNIÓN · {cat.label}</span>
+          <span style={{ fontWeight: 400, fontSize: 10, color: C.light }}>Apertura 2026</span>
+        </div>
+      </div>
+      <div style={{ padding: '4px 16px 14px', fontWeight: 400, fontSize: 11, lineHeight: 1.5, color: C.mid }}>
+        Todavía no tenemos los cruces de los demás equipos de esta categoría, así que por ahora mostramos el resumen de Unión en el torneo, no la tabla completa.
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: `2px solid ${C.dark}`, borderBottom: `2px solid ${C.dark}` }}>
+        <Stat label="PTS" value={rec.pts} />
+        <Stat label="PJ" value={rec.pj} />
+        <Stat label="G" value={rec.g} />
+        <Stat label="E" value={rec.e} />
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', borderBottom: `2px solid ${C.dark}` }}>
+        <Stat label="P" value={rec.p} />
+        <Stat label="GF" value={rec.gf} />
+        <Stat label="GC" value={rec.gc} />
+      </div>
+      <div style={{ height: 24 }} />
+    </div>
+  );
+}
+
 // ── Tercer Tiempo ──────────────────────────────────────────────
 function TercerScreen() {
   const [selected, setSelected] = useState<string | null>(null);
-  const images = ['/tercerTiempo.png', '/tercerTiempo2.png'];
+  const images = ['/tercerTiempo.png', '/tercerTiempo2.png', '/tercerTiempo3.png', '/tercerTiempo4.png'];
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

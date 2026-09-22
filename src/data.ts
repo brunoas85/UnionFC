@@ -635,6 +635,71 @@ export const OTHER_MATCHES = [
   { torneo: "Clausura 2026", fecha: 15, home: "Dinosaurios", away: "Sarmiento", date: "13/12/2026", time: "18:45", resultado: "" },
 ];
 
+// Fixture — Categoría Maxi, Súper Maxi y Máster (UNION EQUIPOS 2026.xlsx, hoja FIXTURE)
+// Por ahora solo está cargado el Apertura 2026 (ya jugado); el Clausura 2026 se suma más adelante.
+// Faltan los cruces de los demás equipos de estas categorías (lo que en Senior es OTHER_MATCHES),
+// así que todavía no se puede armar una tabla de posiciones completa — ver computeCategoryRecord.
+export const FIXTURE_MAXI = [
+  { match_number: 1, rival: "Old Boys", date: "Jue 05 de Marzo", time: "20:00", stadium: "Albino Stadium", resultado: "1 - 1", logo: TEAM_LOGOS["Old Boys"], torneo: "Apertura 2026" },
+  { match_number: 2, rival: "Las Rosas", date: "Mar 10 de Marzo", time: "20:00", stadium: "Albino Stadium", resultado: "0 - 0", logo: TEAM_LOGOS["Las Rosas"], torneo: "Apertura 2026" },
+  { match_number: 3, rival: "Vélez", date: "Sáb 14 de Marzo", time: "14:00", stadium: "Albino Stadium", resultado: "6 - 3", logo: TEAM_LOGOS["Vélez"], torneo: "Apertura 2026" },
+  { match_number: 4, rival: "Patagonia", date: "Jue 19 de Marzo", time: "20:00", stadium: "Albino Stadium", resultado: "0 - 2", logo: TEAM_LOGOS["Patagonia"], torneo: "Apertura 2026" },
+  { match_number: 5, rival: "Dinamo", date: "Sáb 28 de Marzo", time: "17:00", stadium: "Albino Stadium", resultado: "2 - 0", logo: TEAM_LOGOS["Dinamo"], torneo: "Apertura 2026" },
+  { match_number: 6, rival: "Las Rosas", date: "Mié 08 de Abril", time: "20:00", stadium: "Albino Stadium", resultado: "0 - 2", logo: TEAM_LOGOS["Las Rosas"], torneo: "Apertura 2026" },
+  { match_number: 7, rival: "Lácar", date: "Sáb 11 de Abril", time: "15:30", stadium: "Albino Stadium", resultado: "0 - 1", logo: TEAM_LOGOS["Lácar"], torneo: "Apertura 2026" },
+  { match_number: 8, rival: "Arenal", date: "Jue 16 de Abril", time: "21:30", stadium: "Albino Stadium", resultado: "1 - 3", logo: TEAM_LOGOS["Arenal"], torneo: "Apertura 2026" },
+  { match_number: 9, rival: "Old Boys", date: "Sáb 25 de Abril", time: "18:30", stadium: "Albino Stadium", resultado: "2 - 0", logo: TEAM_LOGOS["Old Boys"], torneo: "Apertura 2026" },
+  { match_number: 10, rival: "Vélez", date: "Sáb 02 de Mayo", time: "14:00", stadium: "Albino Stadium", resultado: "1 - 1", logo: TEAM_LOGOS["Vélez"], torneo: "Apertura 2026" },
+  { match_number: 11, rival: "Patagonia", date: "Sáb 09 de Mayo", time: "15:30", stadium: "Albino Stadium", resultado: "1 - 2", logo: TEAM_LOGOS["Patagonia"], torneo: "Apertura 2026" },
+  { match_number: 12, rival: "Dinamo", date: "Jue 14 de Mayo", time: "21:30", stadium: "Albino Stadium", resultado: "4 - 0", logo: TEAM_LOGOS["Dinamo"], torneo: "Apertura 2026" },
+  { match_number: 13, rival: "Lácar", date: "Jue 21 de Mayo", time: "20:00", stadium: "Albino Stadium", resultado: "1 - 0", logo: TEAM_LOGOS["Lácar"], torneo: "Apertura 2026" },
+  { match_number: 14, rival: "Arenal", date: "Sáb 30 de Mayo", time: "17:00", stadium: "Albino Stadium", resultado: "2 - 2", logo: TEAM_LOGOS["Arenal"], torneo: "Apertura 2026" },
+];
+
+export const FIXTURE_SUPERMAXI = [
+  { match_number: 1, rival: "Frontera", date: "Dom 08 de Marzo", time: "14:00", stadium: "Albino Stadium", resultado: "1 - 6", logo: TEAM_LOGOS["Frontera"], torneo: "Apertura 2026" },
+  { match_number: 2, rival: "Patagonia", date: "Dom 15 de Marzo", time: "15:30", stadium: "Albino Stadium", resultado: "1 - 2", logo: TEAM_LOGOS["Patagonia"], torneo: "Apertura 2026" },
+  { match_number: 3, rival: "Belgrano", date: "Dom 22 de Marzo", time: "17:00", stadium: "Albino Stadium", resultado: "2 - 5", logo: TEAM_LOGOS["Belgrano"], torneo: "Apertura 2026" },
+  { match_number: 4, rival: "Old Boys", date: "Lun 30 de Marzo", time: "20:00", stadium: "Albino Stadium", resultado: "0 - 3", logo: TEAM_LOGOS["Old Boys"], torneo: "Apertura 2026" },
+  { match_number: 5, rival: "Lácar", date: "Lun 13 de Abril", time: "20:00", stadium: "Albino Stadium", resultado: "0 - 0", logo: TEAM_LOGOS["Lácar"], torneo: "Apertura 2026" },
+  { match_number: 6, rival: "Las Rosas", date: "Mar 21 de Abril", time: "20:00", stadium: "Albino Stadium", resultado: "1 - 0", logo: TEAM_LOGOS["Las Rosas"], torneo: "Apertura 2026" },
+  { match_number: 7, rival: "Comunicaciones", date: "Dom 26 de Abril", time: "15:30", stadium: "Albino Stadium", resultado: "1 - 1", logo: TEAM_LOGOS["Comunicaciones"], torneo: "Apertura 2026" },
+  { match_number: 8, rival: "Dinamo", date: "Dom 03 de Mayo", time: "14:00", stadium: "Albino Stadium", resultado: "0 - 3", logo: TEAM_LOGOS["Dinamo"], torneo: "Apertura 2026" },
+  { match_number: 9, rival: "Arenal", date: "Sáb 09 de Mayo", time: "17:00", stadium: "Albino Stadium", resultado: "2 - 1", logo: TEAM_LOGOS["Arenal"], torneo: "Apertura 2026" },
+  { match_number: 10, rival: "Fecha libre", date: "Fecha libre", time: "Libre", stadium: "Albino Stadium", resultado: "", logo: CLUB_INFO.logo, torneo: "Apertura 2026" },
+  { match_number: 11, rival: "Chapelco", date: "Mar 26 de Mayo", time: "19:00", stadium: "Albino Stadium", resultado: "0 - 0", logo: TEAM_LOGOS["Chapelco"], torneo: "Apertura 2026" },
+];
+
+export const FIXTURE_MASTER = [
+  { match_number: 1, rival: "Casma", date: "Sáb 07 de Marzo", time: "14:00", stadium: "Albino Stadium", resultado: "0 - 2", logo: TEAM_LOGOS["Casma"], torneo: "Apertura 2026" },
+  { match_number: 2, rival: "Lácar", date: "Dom 15 de Marzo", time: "10:00", stadium: "Albino Stadium", resultado: "1 - 4", logo: TEAM_LOGOS["Lácar"], torneo: "Apertura 2026" },
+  { match_number: 3, rival: "Dinosaurios", date: "Sáb 21 de Marzo", time: "14:00", stadium: "Albino Stadium", resultado: "1 - 1", logo: TEAM_LOGOS["Dinosaurios"], torneo: "Apertura 2026" },
+  { match_number: 4, rival: "Old Boys", date: "Dom 29 de Marzo", time: "12:40", stadium: "Albino Stadium", resultado: "0 - 2", logo: TEAM_LOGOS["Old Boys"], torneo: "Apertura 2026" },
+  { match_number: 5, rival: "Chapelco", date: "Dom 12 de Abril", time: "12:40", stadium: "Albino Stadium", resultado: "0 - 1", logo: TEAM_LOGOS["Chapelco"], torneo: "Apertura 2026" },
+  { match_number: 6, rival: "Casma", date: "Dom 19 de Abril", time: "11:20", stadium: "Albino Stadium", resultado: "1 - 2", logo: TEAM_LOGOS["Casma"], torneo: "Apertura 2026" },
+  { match_number: 7, rival: "Lácar", date: "Dom 26 de Abril", time: "10:00", stadium: "Albino Stadium", resultado: "1 - 3", logo: TEAM_LOGOS["Lácar"], torneo: "Apertura 2026" },
+  { match_number: 8, rival: "Dinosaurios", date: "Sáb 02 de Mayo", time: "14:00", stadium: "Albino Stadium", resultado: "1 - 6", logo: TEAM_LOGOS["Dinosaurios"], torneo: "Apertura 2026" },
+  { match_number: 9, rival: "Old Boys", date: "Dom 10 de Mayo", time: "12:40", stadium: "Albino Stadium", resultado: "0 - 4", logo: TEAM_LOGOS["Old Boys"], torneo: "Apertura 2026" },
+  { match_number: 10, rival: "Chapelco", date: "Dom 17 de Mayo", time: "12:40", stadium: "Albino Stadium", resultado: "0 - 2", logo: TEAM_LOGOS["Chapelco"], torneo: "Apertura 2026" },
+];
+
+// Ficha de Unión (PJ/G/E/P/GF/GC/Pts) calculada a partir de su propio fixture en la categoría.
+// No es una tabla de posiciones completa: falta cargar los cruces de los demás equipos.
+export function computeCategoryRecord(fixture: any[]) {
+  const record = { pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, pts: 0 };
+  fixture.forEach((m) => {
+    if (!m.resultado) return;
+    const goles = m.resultado.split("-").map((n: string) => parseInt(n.trim(), 10));
+    if (goles.length !== 2 || goles.some(Number.isNaN)) return;
+    const [gf, gc] = goles;
+    record.pj += 1; record.gf += gf; record.gc += gc;
+    if (gf > gc) { record.g += 1; record.pts += 3; }
+    else if (gf < gc) { record.p += 1; }
+    else { record.e += 1; record.pts += 1; }
+  });
+  return record;
+}
+
 export const NEWS = [
   {
     category: "Fecha 3",
