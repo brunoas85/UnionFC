@@ -786,4 +786,5 @@ export const MATCH_IMAGES = [
   "UnionPlantel-33.png",
   "UnionPlantel-34.png",
   "UnionPlantel-35.png",
+  "Entrenamiento2.png",
 ];
