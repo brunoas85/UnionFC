@@ -576,6 +576,7 @@ function sortByNumber(players: any[]) {
 function CategoriasScreen() {
   const [catKey, setCatKey] = useState<string | null>(null);
   const [section, setSection] = useState<'plantel' | 'fixture' | 'tabla' | null>(null);
+  const [showResults, setShowResults] = useState(false);
 
   const cat = CATEGORIES.find(c => c.key === catKey) ?? null;
 
@@ -672,23 +673,53 @@ function CategoriasScreen() {
     return (
       <div>
         <BackHeader />
-        <div style={{ padding: '14px 16px 10px', fontWeight: 800, fontSize: 11, letterSpacing: '.1em', color: C.mid }}>APERTURA 2026</div>
-        {cat.fixture.map((f: any, i: number) => (
-          <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '13px 16px', borderBottom: `1px solid ${C.border}` }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ flexShrink: 0, width: 18, fontWeight: 600, fontSize: 8, letterSpacing: '.1em', color: C.vLight }}>F{f.match_number}</span>
-              <img src={CLUB_INFO.logo} alt="Unión" style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
-              <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Unión</span>
-              <ScoreBox score={f.resultado} />
-              <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, textAlign: 'right', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f.rival}</span>
-              {f.logo
-                ? <img src={f.logo} alt={f.rival} style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
-                : <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: '50%', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 9, color: C.light }}>{f.rival.slice(0, 2).toUpperCase()}</div>}
-            </div>
-            <span style={{ fontWeight: 400, fontSize: 10, color: C.light, paddingLeft: 28 }}>{f.date}{f.time && f.time !== 'Libre' ? ` · ${f.time} HS` : ''}</span>
-          </div>
-        ))}
+        <div style={{ padding: '14px 16px 10px' }}>
+          <button
+            onClick={() => setShowResults(true)}
+            style={{
+              appearance: 'none', border: `2px solid ${C.dark}`, background: 'none',
+              padding: '7px 10px', fontWeight: 800, fontSize: 9, letterSpacing: '.08em',
+              cursor: 'pointer', fontFamily: FONT, color: C.dark,
+            }}
+          >
+            APERTURA 2026
+          </button>
+        </div>
         <div style={{ height: 24 }} />
+
+        {showResults && (
+          <div
+            onClick={() => setShowResults(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(32,30,29,.92)', zIndex: 50, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: 16, overflowY: 'auto' }}
+          >
+            <div onClick={e => e.stopPropagation()} style={{ width: '100%', maxWidth: 400, display: 'flex', flexDirection: 'column', gap: 12, margin: '24px 0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontWeight: 800, fontSize: 13, letterSpacing: '.1em', color: '#fff' }}>APERTURA 2026 · {cat.label}</span>
+                <button
+                  onClick={() => setShowResults(false)}
+                  style={{ appearance: 'none', border: 'none', background: 'none', color: '#fff', fontWeight: 800, fontSize: 20, cursor: 'pointer', lineHeight: 1 }}
+                >
+                  ×
+                </button>
+              </div>
+              {cat.fixture.map((f: any, i: number) => (
+                <div key={i} style={{ background: '#fff', borderRadius: 14, display: 'flex', flexDirection: 'column', gap: 8, padding: '13px 14px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ flexShrink: 0, width: 18, fontWeight: 600, fontSize: 8, letterSpacing: '.1em', color: C.vLight }}>F{f.match_number}</span>
+                    <img src={CLUB_INFO.logo} alt="Unión" style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
+                    <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Unión</span>
+                    <ScoreBox score={f.resultado} />
+                    <span style={{ flex: 1, fontWeight: 700, fontSize: 13, lineHeight: 1.2, textAlign: 'right', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f.rival}</span>
+                    {f.logo
+                      ? <img src={f.logo} alt={f.rival} style={{ flexShrink: 0, width: 36, height: 36, objectFit: 'contain' }} />
+                      : <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: '50%', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 9, color: C.light }}>{f.rival.slice(0, 2).toUpperCase()}</div>}
+                  </div>
+                  <span style={{ fontWeight: 400, fontSize: 10, color: C.light, paddingLeft: 28 }}>{f.date}{f.time && f.time !== 'Libre' ? ` · ${f.time} HS` : ''}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
