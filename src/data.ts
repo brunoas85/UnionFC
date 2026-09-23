@@ -174,6 +174,50 @@ export const STANDINGS = [
   { pos: 16, name: "Vélez", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, logo: "/escudo-vélez.png" },
 ];
 
+// Tablas — Clausura 2026 — Otras Categorías (cargadas a mano desde las planillas del torneo)
+export const STANDINGS_MAXI = [
+  { pos: 1, name: "Patagonia", pts: 7, pj: 3, g: 2, e: 1, p: 0, gf: 12, gc: 3, dif: 9, logo: TEAM_LOGOS["Patagonia"] },
+  { pos: 2, name: "Chapelco", pts: 7, pj: 3, g: 2, e: 1, p: 0, gf: 6, gc: 0, dif: 6, logo: TEAM_LOGOS["Chapelco"] },
+  { pos: 3, name: "Unión", pts: 7, pj: 3, g: 2, e: 1, p: 0, gf: 7, gc: 3, dif: 4, isUserTeam: true, logo: TEAM_LOGOS["Unión"] },
+  { pos: 4, name: "Las Rosas", pts: 6, pj: 3, g: 2, e: 0, p: 1, gf: 10, gc: 3, dif: 7, logo: TEAM_LOGOS["Las Rosas"] },
+  { pos: 5, name: "Casma", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 6, gc: 4, dif: 2, logo: TEAM_LOGOS["Casma"] },
+  { pos: 6, name: "Lácar", pts: 4, pj: 3, g: 1, e: 1, p: 1, gf: 4, gc: 1, dif: 3, logo: TEAM_LOGOS["Lácar"] },
+  { pos: 7, name: "Vélez", pts: 4, pj: 3, g: 1, e: 1, p: 1, gf: 2, gc: 0, dif: 2, logo: TEAM_LOGOS["Vélez"] },
+  { pos: 8, name: "Belgrano", pts: 3, pj: 3, g: 1, e: 0, p: 2, gf: 3, gc: 7, dif: -4, logo: TEAM_LOGOS["Belgrano"] },
+  { pos: 9, name: "Dinosaurios", pts: 2, pj: 3, g: 0, e: 2, p: 1, gf: 2, gc: 4, dif: -2, logo: TEAM_LOGOS["Dinosaurios"] },
+  { pos: 10, name: "Old Boys", pts: 1, pj: 3, g: 0, e: 1, p: 2, gf: 3, gc: 5, dif: -2, logo: TEAM_LOGOS["Old Boys"] },
+  { pos: 11, name: "Comunicaciones", pts: 1, pj: 3, g: 0, e: 1, p: 2, gf: 1, gc: 6, dif: -5, logo: TEAM_LOGOS["Comunicaciones"] },
+  { pos: 12, name: "Frontera", pts: 1, pj: 3, g: 0, e: 1, p: 2, gf: 3, gc: 14, dif: -11, logo: TEAM_LOGOS["Frontera"] },
+  { pos: 13, name: "Dinamo", pts: 0, pj: 3, g: 0, e: 0, p: 3, gf: 0, gc: 9, dif: -9, logo: TEAM_LOGOS["Dinamo"] },
+];
+
+export const STANDINGS_SUPERMAXI = [
+  { pos: 1, name: "Belgrano", pts: 6, pj: 2, g: 2, e: 0, p: 0, gf: 9, gc: 1, dif: 8, logo: TEAM_LOGOS["Belgrano"] },
+  { pos: 2, name: "Lácar", pts: 6, pj: 3, g: 2, e: 0, p: 1, gf: 7, gc: 4, dif: 3, logo: TEAM_LOGOS["Lácar"] },
+  { pos: 3, name: "Frontera", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 5, gc: 3, dif: 2, logo: TEAM_LOGOS["Frontera"] },
+  { pos: 4, name: "Chapelco", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 4, gc: 2, dif: 2, logo: TEAM_LOGOS["Chapelco"] },
+  { pos: 5, name: "Arenal", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 4, gc: 3, dif: 1, logo: TEAM_LOGOS["Arenal"] },
+  { pos: 6, name: "Dinamo", pts: 3, pj: 2, g: 1, e: 0, p: 1, gf: 5, gc: 3, dif: 2, logo: TEAM_LOGOS["Dinamo"] },
+  { pos: 7, name: "Unión", pts: 3, pj: 2, g: 1, e: 0, p: 1, gf: 3, gc: 3, dif: 0, isUserTeam: true, logo: TEAM_LOGOS["Unión"] },
+  { pos: 8, name: "Patagonia", pts: 3, pj: 3, g: 1, e: 0, p: 2, gf: 5, gc: 8, dif: -3, logo: TEAM_LOGOS["Patagonia"] },
+  { pos: 9, name: "Old Boys", pts: 3, pj: 3, g: 1, e: 0, p: 2, gf: 3, gc: 6, dif: -3, logo: TEAM_LOGOS["Old Boys"] },
+  { pos: 10, name: "Las Rosas", pts: 2, pj: 3, g: 0, e: 2, p: 1, gf: 3, gc: 6, dif: -3, logo: TEAM_LOGOS["Las Rosas"] },
+  { pos: 11, name: "Comunicaciones", pts: 0, pj: 3, g: 0, e: 0, p: 3, gf: 3, gc: 12, dif: -9, logo: TEAM_LOGOS["Comunicaciones"] },
+];
+
+export const STANDINGS_MASTER = [
+  { pos: 1, name: "Casma", pts: 7, pj: 3, g: 2, e: 1, p: 0, gf: 9, gc: 5, dif: 4, logo: TEAM_LOGOS["Casma"] },
+  { pos: 2, name: "Comunicaciones", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 5, gc: 3, dif: 2, logo: TEAM_LOGOS["Comunicaciones"] },
+  { pos: 3, name: "Lácar", pts: 5, pj: 3, g: 1, e: 2, p: 0, gf: 2, gc: 1, dif: 1, logo: TEAM_LOGOS["Lácar"] },
+  { pos: 4, name: "Old Boys", pts: 4, pj: 3, g: 1, e: 1, p: 1, gf: 6, gc: 4, dif: 2, logo: TEAM_LOGOS["Old Boys"] },
+  { pos: 5, name: "Arenal", pts: 4, pj: 3, g: 1, e: 1, p: 1, gf: 2, gc: 4, dif: -2, logo: TEAM_LOGOS["Arenal"] },
+  { pos: 6, name: "Dinosaurios", pts: 3, pj: 3, g: 0, e: 3, p: 0, gf: 3, gc: 3, dif: 0, logo: TEAM_LOGOS["Dinosaurios"] },
+  { pos: 7, name: "Unión", pts: 3, pj: 3, g: 0, e: 3, p: 0, gf: 0, gc: 0, dif: 0, isUserTeam: true, logo: TEAM_LOGOS["Unión"] },
+  { pos: 8, name: "Chapelco", pts: 3, pj: 3, g: 1, e: 0, p: 2, gf: 2, gc: 4, dif: -2, logo: TEAM_LOGOS["Chapelco"] },
+  { pos: 9, name: "Frontera", pts: 2, pj: 3, g: 0, e: 2, p: 1, gf: 2, gc: 4, dif: -2, logo: TEAM_LOGOS["Frontera"] },
+  { pos: 10, name: "Dinamo", pts: 1, pj: 3, g: 0, e: 1, p: 2, gf: 3, gc: 5, dif: -2, logo: TEAM_LOGOS["Dinamo"] },
+];
+
 // Aplica un resultado "goles local - goles visitante" a los dos equipos involucrados.
 function applyResult(byName: Map<string, any>, home: string, away: string, resultado: string) {
   if (!resultado) return;

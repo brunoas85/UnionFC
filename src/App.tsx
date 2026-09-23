@@ -18,7 +18,9 @@ import {
   FIXTURE_MAXI,
   FIXTURE_SUPERMAXI,
   FIXTURE_MASTER,
-  computeCategoryRecord,
+  STANDINGS_MAXI,
+  STANDINGS_SUPERMAXI,
+  STANDINGS_MASTER,
 } from './data';
 import { supabase } from './supabaseClient';
 
@@ -559,10 +561,10 @@ function GaleriaScreen() {
 }
 
 // ── Otras categorías (Maxi / Súper Maxi / Máster) ────────────────
-const CATEGORIES: { key: string; label: string; tag: string; players: any[]; fixture: any[] }[] = [
-  { key: 'maxi', label: 'MAXI', tag: 'MAXI', players: PLAYERS_MAXI, fixture: FIXTURE_MAXI },
-  { key: 'supermaxi', label: 'SÚPER MAXI', tag: 'SÚPER MAXI', players: PLAYERS_SUPERMAXI, fixture: FIXTURE_SUPERMAXI },
-  { key: 'master', label: 'MÁSTER', tag: 'MÁSTER', players: PLAYERS_MASTER, fixture: FIXTURE_MASTER },
+const CATEGORIES: { key: string; label: string; tag: string; players: any[]; fixture: any[]; standings: any[] }[] = [
+  { key: 'maxi', label: 'MAXI', tag: 'MAXI', players: PLAYERS_MAXI, fixture: FIXTURE_MAXI, standings: STANDINGS_MAXI },
+  { key: 'supermaxi', label: 'SÚPER MAXI', tag: 'SÚPER MAXI', players: PLAYERS_SUPERMAXI, fixture: FIXTURE_SUPERMAXI, standings: STANDINGS_SUPERMAXI },
+  { key: 'master', label: 'MÁSTER', tag: 'MÁSTER', players: PLAYERS_MASTER, fixture: FIXTURE_MASTER, standings: STANDINGS_MASTER },
 ];
 
 function sortByNumber(players: any[]) {
@@ -724,37 +726,48 @@ function CategoriasScreen() {
     );
   }
 
-  // section === 'tabla' — ficha de Unión (no hay cruces de los demás equipos todavía)
-  const rec = computeCategoryRecord(cat.fixture);
-  const Stat = ({ label, value }: { label: string; value: number | string }) => (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '14px 4px' }}>
-      <span style={{ fontWeight: 900, fontSize: 20, lineHeight: 1 }}>{value}</span>
-      <span style={{ fontWeight: 700, fontSize: 8, letterSpacing: '.1em', color: C.light }}>{label}</span>
-    </div>
-  );
+  // section === 'tabla' — mismo formato de tabla que Senior
   return (
     <div>
       <BackHeader />
-      <div style={{ padding: '16px 16px 4px', display: 'flex', alignItems: 'center', gap: 12 }}>
-        <img src={CLUB_INFO.logo} alt="Unión" style={{ width: 40, height: 40, objectFit: 'contain' }} />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span style={{ fontWeight: 900, fontSize: 18, letterSpacing: '-.01em' }}>UNIÓN · {cat.label}</span>
-          <span style={{ fontWeight: 400, fontSize: 10, color: C.light }}>Apertura 2026</span>
+      <div style={{ borderBottom: `2px solid ${C.dark}` }}>
+        <div style={{ padding: '16px 16px 10px' }}>
+          <span style={{ fontWeight: 400, fontSize: 10, color: C.light }}>Clausura 2026 · {cat.label}</span>
         </div>
-      </div>
-      <div style={{ padding: '4px 16px 14px', fontWeight: 400, fontSize: 11, lineHeight: 1.5, color: C.mid }}>
-        Todavía no tenemos los cruces de los demás equipos de esta categoría, así que por ahora mostramos el resumen de Unión en el torneo, no la tabla completa.
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: `2px solid ${C.dark}`, borderBottom: `2px solid ${C.dark}` }}>
-        <Stat label="PTS" value={rec.pts} />
-        <Stat label="PJ" value={rec.pj} />
-        <Stat label="G" value={rec.g} />
-        <Stat label="E" value={rec.e} />
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', borderBottom: `2px solid ${C.dark}` }}>
-        <Stat label="P" value={rec.p} />
-        <Stat label="GF" value={rec.gf} />
-        <Stat label="GC" value={rec.gc} />
+        <div style={{ display: 'grid', gridTemplateColumns: '22px 1fr 26px 20px 20px 20px 20px 24px 24px 28px', padding: '8px 10px', borderTop: `2px solid ${C.dark}`, borderBottom: `2px solid ${C.dark}`, fontWeight: 800, fontSize: 7, letterSpacing: '.06em', color: C.mid }}>
+          <span>POS</span><span>EQUIPO</span>
+          <span style={{ textAlign: 'right' }}>PTS</span>
+          <span style={{ textAlign: 'center' }}>J</span>
+          <span style={{ textAlign: 'center' }}>G</span>
+          <span style={{ textAlign: 'center' }}>E</span>
+          <span style={{ textAlign: 'center' }}>P</span>
+          <span style={{ textAlign: 'center' }}>GF</span>
+          <span style={{ textAlign: 'center' }}>GC</span>
+          <span style={{ textAlign: 'right' }}>DIF</span>
+        </div>
+        {cat.standings.map((row: any, i: number) => (
+          <div key={i} style={{
+            display: 'grid', gridTemplateColumns: '22px 1fr 26px 20px 20px 20px 20px 24px 24px 28px', alignItems: 'center',
+            padding: '10px 10px', borderBottom: `1px solid ${C.border}`,
+            background: row.isUserTeam ? '#ffe0d9' : 'transparent',
+          }}>
+            <span style={{ fontWeight: 800, fontSize: 11, color: C.light }}>{row.pos}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0 }}>
+              {row.logo
+                ? <img src={row.logo} alt="" style={{ width: 18, height: 18, objectFit: 'contain', flexShrink: 0 }} />
+                : <div style={{ flexShrink: 0, width: 18, height: 18, borderRadius: '50%', border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 6, color: C.light }}>{row.name.slice(0, 2).toUpperCase()}</div>}
+              <span style={{ fontWeight: 700, fontSize: 11, lineHeight: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{row.name}</span>
+            </div>
+            <span style={{ fontWeight: 800, fontSize: 12, textAlign: 'right' }}>{row.pts}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.pj}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.g}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.e}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.p}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.gf}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'center', color: C.mid }}>{row.gc}</span>
+            <span style={{ fontWeight: 400, fontSize: 10, textAlign: 'right', color: C.mid }}>{row.dif > 0 ? `+${row.dif}` : row.dif}</span>
+          </div>
+        ))}
       </div>
       <div style={{ height: 24 }} />
     </div>
