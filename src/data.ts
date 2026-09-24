@@ -11,7 +11,7 @@ export const TEAM_LOGOS: Record<string, string> = {
   "Arenal": "/escudo-arenal.png",
   "Sarmiento": "/escudo-sarmiento.png",
   "Vélez": "/escudo-vélez.png",
-  "Unión": "/UnionEscudo.png",
+  "Unión": "/UnionEscudoCrest.png",
   "Dinamo": "/escudo-dinamo.png",
   "Dínamo": "/escudo-dinamo.png",
   "Embajadores": "/escudo-embajadores.png",
@@ -27,7 +27,7 @@ export const TEAM_LOGOS: Record<string, string> = {
 export const CLUB_INFO = {
   name: "Unión",
   location: "San Martín de los Andes",
-  logo: "/UnionEscudo.png",
+  logo: "/UnionEscudoCrest.png",
   heroImage: "/1º FECHA CLAU26(3).jpeg",
 };
 
@@ -170,7 +170,7 @@ export const STANDINGS = [
   { pos: 12, name: "Las Rosas", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, logo: "/escudo-lasrosas.png" },
   { pos: 13, name: "Patagonia", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, logo: "/escudo-patagonia.png" },
   { pos: 14, name: "Sarmiento", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, logo: "/escudo-sarmiento.png" },
-  { pos: 15, name: "Unión", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, isUserTeam: true, logo: "/UnionEscudo.png" },
+  { pos: 15, name: "Unión", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, isUserTeam: true, logo: "/UnionEscudoCrest.png" },
   { pos: 16, name: "Vélez", pts: 0, pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dif: 0, logo: "/escudo-vélez.png" },
 ];
 
