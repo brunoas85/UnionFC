@@ -746,8 +746,8 @@ export function computeCategoryRecord(fixture: any[]) {
 
 export const NEWS = [
   {
-    category: "Fecha 3",
-    title: "Unión se llevó la victoria ante Sarmiento por 2-0 con goles de Fabio y Daro y sigue sumando para seguir en lo más alto.",
+    category: "Fecha 4",
+    title: "A pesar de una cancha complicada, donde el equipo no pudo hacer su juego, Unión le ganó 5-1 a Belgrano y sumó su 4ta victoria consecutiva. ¡A seguir así!",
     image: "/UnionPlantel-18.png"
   },
   {
@@ -781,6 +781,10 @@ export const MATCH_VIDEOS = [
   "2º FECHA Clau26 (10).mp4",
   "3º FECHA Clau26 (1).mp4",
   "3º FECHA Clau26 (2).mp4",
+  "4º FECHA Clau26.mp4",
+  "4º FECHA Clau26 (1).mp4",
+  "4º FECHA Clau26 (2).mp4",
+  "4º FECHA Clau26 (3).mp4",
 ];
 
 // Agregar fotos nuevas al final del array (la galería las muestra con las más recientes primero)
@@ -831,4 +835,5 @@ export const MATCH_IMAGES = [
   "UnionPlantel-34.png",
   "UnionPlantel-35.png",
   "Entrenamiento2.png",
+  "UnionPlantel-37.png",
 ];
