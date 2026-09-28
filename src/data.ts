@@ -35,12 +35,12 @@ export const CLUB_INFO = {
 export const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/TU-CODIGO-DE-INVITACION";
 
 export const NEXT_MATCH = {
-  opponent: "Belgrano",
-  opponentLogo: TEAM_LOGOS["Belgrano"],
-  date: "Dom 27 de Septiembre",
-  time: "13:30 HS",
+  opponent: "All Boys",
+  opponentLogo: TEAM_LOGOS["All Boys"],
+  date: "Dom 04 de Octubre",
+  time: "17:00 HS",
   stadium: "Albino Stadium",
-  round: "CLAUSURA 2026 · FECHA 4",
+  round: "CLAUSURA 2026 · FECHA 5",
   isLocal: true,
 };
 
@@ -437,18 +437,18 @@ export const FIXTURE = [
     date: "Dom 27 de Septiembre",
     time: "13:30",
     stadium: "Albino Stadium",
-    resultado: "",
+    resultado: "5 - 1",
     logo: TEAM_LOGOS["Belgrano"],
     torneo: "Clausura 2026",
   },
   {
     match_number: 5,
-    rival: "Arenal",
+    rival: "All Boys",
     date: "Dom 04 de Octubre",
     time: "17:00",
     stadium: "Albino Stadium",
     resultado: "",
-    logo: TEAM_LOGOS["Arenal"],
+    logo: TEAM_LOGOS["All Boys"],
     torneo: "Clausura 2026",
   },
   {
@@ -513,12 +513,12 @@ export const FIXTURE = [
   },
   {
     match_number: 12,
-    rival: "All Boys",
+    rival: "Arenal",
     date: "Dom 29 de Noviembre",
     time: "19:00",
     stadium: "Albino Stadium",
     resultado: "",
-    logo: TEAM_LOGOS["All Boys"],
+    logo: TEAM_LOGOS["Arenal"],
     torneo: "Clausura 2026",
   },
   {
