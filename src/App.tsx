@@ -295,7 +295,7 @@ function MatchScreen() {
       </div>
 
       <div style={{ padding: '16px 16px', fontWeight: 400, fontSize: 12, lineHeight: 1.6, color: C.mid }}>
-        4to encuentro de Unión en el Clausura 2026.
+        {NEXT_MATCH.round.match(/FECHA (\d+)/)?.[1]}º encuentro de Unión en el Clausura 2026.
       </div>
 
       {/* Noticias */}
