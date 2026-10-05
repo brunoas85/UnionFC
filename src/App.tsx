@@ -223,7 +223,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
               UNIÓN<br />S.M.A.
             </span>
           </div>
-          <span style={{ fontWeight: 600, fontSize: 10, letterSpacing: '.02em', textAlign: 'right', opacity: .9 }}>
+          <span style={{ fontWeight: 600, fontSize: 10, letterSpacing: '.02em', textAlign: 'right', opacity: .9, marginTop: -8 }}>
             El equipo lo hacemos entre todos
           </span>
         </div>
