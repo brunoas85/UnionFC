@@ -215,7 +215,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
         <img
           src="/UnionEscudo.png"
           alt="Escudo Unión"
-          style={{ position: 'absolute', top: 10, left: 12, height: 81, width: 'auto' }}
+          style={{ position: 'absolute', bottom: 6, left: 12, height: 81, width: 'auto' }}
         />
         <div style={{ position: 'absolute', left: 12, bottom: 6, right: 12, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4, color: '#fff' }}>
           <span style={{ fontWeight: 900, fontSize: 22, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
