@@ -204,27 +204,26 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
   return (
     <div>
       {/* Hero */}
-      {/* La foto va completa (sin recorte) y el escudo y el título quedan debajo para no tapar a nadie */}
-      <div style={{ background: C.dark }}>
+      {/* La foto ocupa todo el hero en su proporción original (sin recorte); escudo y título van encima */}
+      <div style={{ position: 'relative', background: C.dark, overflow: 'hidden' }}>
         <img
           src="/UnionPlantel-40.png"
           alt="Plantel Unión"
           style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
         />
-        <div style={{ padding: '12px 16px 8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '45%', background: 'linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0))' }} />
         <img
           src="/UnionEscudo.png"
           alt="Escudo Unión"
-          style={{ height: 80, width: 'auto', flexShrink: 0 }}
+          style={{ position: 'absolute', top: 10, left: 12, height: 56, width: 'auto' }}
         />
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, color: '#fff' }}>
-          <span style={{ fontWeight: 900, fontSize: 42, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
+        <div style={{ position: 'absolute', left: 12, bottom: 6, right: 12, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4, color: '#fff' }}>
+          <span style={{ fontWeight: 900, fontSize: 22, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
             UNIÓN<br />S.M.A.
           </span>
-          <span style={{ fontWeight: 600, fontSize: 11, letterSpacing: '.02em', textAlign: 'right', opacity: .9 }}>
+          <span style={{ fontWeight: 600, fontSize: 10, letterSpacing: '.02em', textAlign: 'right', opacity: .9 }}>
             El equipo lo hacemos entre todos
           </span>
-        </div>
         </div>
       </div>
 
