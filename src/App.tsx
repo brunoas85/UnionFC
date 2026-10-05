@@ -204,24 +204,27 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
   return (
     <div>
       {/* Hero */}
-      <div style={{ position: 'relative', height: 330, background: C.dark, overflow: 'hidden' }}>
+      {/* La foto va completa (sin recorte) y el escudo y el título quedan debajo para no tapar a nadie */}
+      <div style={{ background: C.dark }}>
         <img
           src="/UnionPlantel-40.png"
           alt="Plantel Unión"
-          style={{ width: '100%', height: 330, objectFit: 'cover', objectPosition: '25% center', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
+          style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
         />
+        <div style={{ padding: '12px 16px 8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
         <img
           src="/UnionEscudo.png"
           alt="Escudo Unión"
-          style={{ position: 'absolute', top: 18, left: 16, height: 100, width: 'auto' }}
+          style={{ height: 80, width: 'auto', flexShrink: 0 }}
         />
-        <div style={{ position: 'absolute', left: 16, bottom: 8, right: 16, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, color: '#fff' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, color: '#fff' }}>
           <span style={{ fontWeight: 900, fontSize: 42, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
             UNIÓN<br />S.M.A.
           </span>
           <span style={{ fontWeight: 600, fontSize: 11, letterSpacing: '.02em', textAlign: 'right', opacity: .9 }}>
             El equipo lo hacemos entre todos
           </span>
+        </div>
         </div>
       </div>
 
