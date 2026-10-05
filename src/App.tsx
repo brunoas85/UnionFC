@@ -212,8 +212,8 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
           style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
         />
         <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '45%', background: 'linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0))' }} />
-        <div style={{ position: 'absolute', left: 12, bottom: 6, right: 12, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4, color: '#fff' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ position: 'absolute', left: 12, bottom: 6, right: 12, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 3, color: '#fff' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
             <img
               src="/UnionEscudo.png"
               alt="Escudo Unión"
