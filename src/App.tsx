@@ -208,7 +208,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
         <img
           src="/1º FECHA CLAU26(3).jpeg"
           alt="Plantel Unión"
-          style={{ width: '100%', height: 330, objectFit: 'cover', objectPosition: '25% center', display: 'block', filter: 'grayscale(1) contrast(1.12) brightness(.82)' }}
+          style={{ width: '100%', height: 330, objectFit: 'cover', objectPosition: '25% center', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
         />
         <img
           src="/UnionEscudo.png"
