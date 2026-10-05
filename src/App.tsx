@@ -217,7 +217,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
             <img
               src="/UnionEscudo.png"
               alt="Escudo Unión"
-              style={{ height: 81, width: 'auto' }}
+              style={{ height: 86, width: 'auto' }}
             />
             <span style={{ fontWeight: 900, fontSize: 22, lineHeight: .92, letterSpacing: '-.02em', textAlign: 'right' }}>
               UNIÓN<br />S.M.A.
