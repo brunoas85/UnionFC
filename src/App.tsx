@@ -206,7 +206,7 @@ function IndexScreen({ go }: { go: (s: Screen) => void }) {
       {/* Hero */}
       <div style={{ position: 'relative', height: 330, background: C.dark, overflow: 'hidden' }}>
         <img
-          src="/1º FECHA CLAU26(3).jpeg"
+          src="/UnionPlantel-40.png"
           alt="Plantel Unión"
           style={{ width: '100%', height: 330, objectFit: 'cover', objectPosition: '25% center', display: 'block', filter: 'contrast(1.12) brightness(.82)' }}
         />
