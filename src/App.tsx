@@ -777,7 +777,7 @@ function CategoriasScreen() {
 // ── Tercer Tiempo ──────────────────────────────────────────────
 function TercerScreen() {
   const [selected, setSelected] = useState<string | null>(null);
-  const images = ['/tercerTiempo.png', '/tercerTiempo2.png', '/tercerTiempo3.png', '/tercerTiempo4.png'];
+  const images = ['/tercerTiempo.png', '/tercerTiempo2.png', '/tercerTiempo3.png', '/tercerTiempo4.png', '/tercerTiempo5.png', '/tercerTiempo6.png', '/tercerTiempo7.png'];
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

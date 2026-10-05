@@ -35,12 +35,12 @@ export const CLUB_INFO = {
 export const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/TU-CODIGO-DE-INVITACION";
 
 export const NEXT_MATCH = {
-  opponent: "All Boys",
-  opponentLogo: TEAM_LOGOS["All Boys"],
-  date: "Dom 04 de Octubre",
-  time: "17:00 HS",
+  opponent: "Patagonia",
+  opponentLogo: TEAM_LOGOS["Patagonia"],
+  date: "Dom 11 de Octubre",
+  time: "18:45 HS",
   stadium: "Albino Stadium",
-  round: "CLAUSURA 2026 · FECHA 5",
+  round: "CLAUSURA 2026 · FECHA 6",
   isLocal: true,
 };
 
@@ -447,7 +447,7 @@ export const FIXTURE = [
     date: "Dom 04 de Octubre",
     time: "17:00",
     stadium: "Albino Stadium",
-    resultado: "",
+    resultado: "2 - 0",
     logo: TEAM_LOGOS["All Boys"],
     torneo: "Clausura 2026",
   },
@@ -746,9 +746,9 @@ export function computeCategoryRecord(fixture: any[]) {
 
 export const NEWS = [
   {
-    category: "Fecha 4",
-    title: "A pesar de una cancha complicada, donde el equipo no pudo hacer su juego, Unión le ganó 5-1 a Belgrano y sumó su 4ta victoria consecutiva. ¡A seguir así!",
-    image: "/UnionPlantel-18.png"
+    category: "Fecha 5",
+    title: "Unión le ganó 2-0 a All Boys con goles de Lucho y Pedro Soto y sigue sumando: ¡5to partido con puntaje ideal!",
+    image: "/UnionPlantel-38.png"
   },
   {
     category: "Entrenamiento",
@@ -836,4 +836,7 @@ export const MATCH_IMAGES = [
   "UnionPlantel-35.png",
   "Entrenamiento2.png",
   "UnionPlantel-37.png",
+  "UnionPlantel-38.png",
+  "UnionPlantel-39.png",
+  "UnionPlantel-40.png",
 ];
