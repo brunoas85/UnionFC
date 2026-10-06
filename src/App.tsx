@@ -115,8 +115,11 @@ export default function App() {
           // Los cruces de Supabase pisan a los locales (para conservar resultados cargados ahí);
           // los locales completan las fechas que la tabla remota todavía no tiene.
           const key = (m: any) => `${m.torneo}|${m.fecha}|${m.home}|${m.away}`;
+          // Si la fila remota no tiene resultado, se usa el local (ej. "SUSPENDIDO", que Supabase no deja cargar).
+          const local = new Map(OTHER_MATCHES.map((m) => [key(m), m]));
+          const merged = data.map((m: any) => (m.resultado ? m : { ...m, resultado: local.get(key(m))?.resultado ?? m.resultado }));
           const remote = new Set(data.map(key));
-          setOtherMatches([...data, ...OTHER_MATCHES.filter((m) => !remote.has(key(m)))]);
+          setOtherMatches([...merged, ...OTHER_MATCHES.filter((m) => !remote.has(key(m)))]);
         }
       } catch {
         setOtherMatches(OTHER_MATCHES);
@@ -391,7 +394,9 @@ function CruceCard({ home, away, date, time, resultado, torneo }: { home: string
       <span style={{ textAlign: 'center', fontWeight: 700, fontSize: 10, letterSpacing: '.08em', color: C.mid }}>{torneo.toUpperCase()}</span>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Team name={home} />
-        {resultado
+        {resultado && outcome(resultado) === 'none'
+          ? <span style={{ flexShrink: 0, fontWeight: 800, fontSize: 10, letterSpacing: '.08em', color: C.darkRed, padding: '0 8px' }}>{resultado.toUpperCase()}</span>
+          : resultado
           ? <ScoreBox score={resultado} neutral />
           : <span style={{ flexShrink: 0, fontWeight: 800, fontSize: 12, color: C.light, padding: '0 8px' }}>VS</span>}
         <Team name={away} />

@@ -589,8 +589,8 @@ export const OTHER_MATCHES = [
   { torneo: "Clausura 2026", fecha: 4, home: "Las Rosas", away: "Comunicaciones", date: "27/9/2026", time: "17:00", resultado: "" },
   { torneo: "Clausura 2026", fecha: 4, home: "Frontera", away: "All Boys", date: "27/9/2026", time: "18:45", resultado: "" },
 
-  { torneo: "Clausura 2026", fecha: 5, home: "Comunicaciones", away: "Chapelco", date: "2/10/2026", time: "21:30", resultado: "" },
-  { torneo: "Clausura 2026", fecha: 5, home: "El Barrio", away: "Sarmiento", date: "3/10/2026", time: "19:00", resultado: "" },
+  { torneo: "Clausura 2026", fecha: 5, home: "Comunicaciones", away: "Chapelco", date: "2/10/2026", time: "21:30", resultado: "SUSPENDIDO" },
+  { torneo: "Clausura 2026", fecha: 5, home: "El Barrio", away: "Sarmiento", date: "3/10/2026", time: "19:00", resultado: "SUSPENDIDO" },
   { torneo: "Clausura 2026", fecha: 5, home: "Las Rosas", away: "Vélez", date: "4/10/2026", time: "10:00", resultado: "" },
   { torneo: "Clausura 2026", fecha: 5, home: "Embajadores", away: "Dinosaurios", date: "4/10/2026", time: "11:45", resultado: "" },
   { torneo: "Clausura 2026", fecha: 5, home: "Lácar", away: "Belgrano", date: "4/10/2026", time: "13:30", resultado: "" },
